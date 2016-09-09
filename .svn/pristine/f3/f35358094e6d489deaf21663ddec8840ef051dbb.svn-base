@@ -1,0 +1,29 @@
+object RodCutter {
+
+  def getOptimalCutsForSplit(split: Int, length: Int, prices: Map[Int, Int]): (Int, List[List[Int]])= {
+  val tupleForSplit = getOptimalCuts(split, prices) //Venkat: tupleForSplit to resultForFirstSplit (always think of data not type)
+  val tupleForLengthMinusSplit = getOptimalCuts(length - split, prices) //Venkat: resultForSecondSplit
+  //val revenue = ... + ...
+  val permutationOfBothCuts = for (cutFromTheTupleOfSplit <- tupleForSplit._2; cutFromTheTupleOfLengthMinusSplit <- tupleForLengthMinusSplit._2) yield (cutFromTheTupleOfSplit:::cutFromTheTupleOfLengthMinusSplit) //Venkat: give space arond operators like :::
+
+  (tupleForSplit._1 + tupleForLengthMinusSplit._1, permutationOfBothCuts)
+}
+
+  def getOptimalCuts(length: Int, prices: Map[Int, Int]) : (Int, List[List[Int]]) = {
+    length match {
+      case x if x <= 0 => (0, List(List())) //Venkat: case _ if length <= 0 => ...
+      case _ =>
+//Venkat: Write another function that will take two results and combine them into one result based on the value of the revenue.
+//Then call that function in a call to foldLeft here. The code below is almost impossible to read as it fails the SLAP principle.
+        val listOfCuts = Stream.range(1, length).map(i => getOptimalCutsForSplit(i, length, prices)).toList
+        val listOfAllCuts = listOfCuts ::: List((prices.getOrElse(length, 0), List(List(length))))
+        val maxProfit = listOfAllCuts.maxBy(_._1)._1
+        val listWithMaxRevenue = listOfAllCuts.filter(i => i._1 == maxProfit)
+        val combinedListWithMaxRevenue = listWithMaxRevenue.foldLeft[List[List[Int]]](List()){
+          (list, i) => list ::: i._2
+        }
+
+        (maxProfit, combinedListWithMaxRevenue)
+		}
+	}
+}

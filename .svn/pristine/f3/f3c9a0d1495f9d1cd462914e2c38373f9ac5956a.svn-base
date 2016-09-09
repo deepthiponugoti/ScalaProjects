@@ -1,0 +1,8 @@
+class Pizza{
+}
+
+class Dsl {
+  def create(item : String) = {
+    Class.forName(item.capitalize).newInstance()
+  }
+}

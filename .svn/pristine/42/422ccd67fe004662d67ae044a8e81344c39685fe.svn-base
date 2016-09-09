@@ -1,0 +1,31 @@
+import scala.annotation.tailrec
+
+class FibonacciSeries {
+
+  def fibonacciRecursion(position: Int): List[Int] = {
+    position match {
+      case 0 => List(1)
+      case 1 => List(1, 1)
+      case _ if position < 0 => List()
+      case _ => {
+        val listAtPositionMinusOne = fibonacciRecursion(position - 1)
+        listAtPositionMinusOne :+ listAtPositionMinusOne.takeRight(2).sum
+      }
+    }
+  }
+
+  @tailrec
+  final def fibonacciTailRecursion(position: Int, listOfNumbers: List[Int]): List[Int] = {
+    position match {
+      case x if (x == 0 && listOfNumbers.length != 0) || position < 0 => listOfNumbers
+      case 0 => List(1)
+      case _ => {
+        val intermediateResult = listOfNumbers.length match {
+          case 0 => List(1)
+          case _ => listOfNumbers
+        }
+        fibonacciTailRecursion(position - 1, intermediateResult :+ intermediateResult.takeRight(2).sum)
+      }
+    }
+  }
+}

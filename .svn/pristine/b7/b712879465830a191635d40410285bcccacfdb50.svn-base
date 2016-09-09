@@ -1,0 +1,64 @@
+A recursion runs into stack overflow errors for very large values. On the other hand a tail call 
+optimized recursion does not. Why is that?
+
+Simple recursion is recursive in procedure as well as the process. Simple recursion has a growth phase and a phase of reduction. Growth phase includes calling a function after a function after a function. This amounts to retain the state information in a stack that we have come back and call in the reduction phase. So, as the state information is being stored in the stack, for large values the stack gets overflowed at some point and throws stack overflow errors. Recursive process is very expensive in resource usage.
+
+However, Tail Recursion is recursive in procedure and iterative in process. It enjoys all the benefits of iterative process like we can take the snapshot of the program any time and It does not consume as many resources as recursive process. Tail Recursion does not need to store the state information in the stack. There is no reduction phase here because the recursive call is the last call of the function. It does not perform any computations past the recursive call. This avoids tail calls from running into stack overflow errors.
+            	
+Normal Recursion: (scala)
+
+import java.math.BigInteger
+
+class FactorialRecursion {
+
+  def factorial_Recursive_Recursive(number: Int) : BigInteger = {
+
+	if(number == 1)
+		BigInteger.ONE
+	else
+		new BigInteger(number.toString).multiply(factorial_Recursive_Recursive(number - 1))
+
+  }
+
+}
+
+object factorialRecursionObject {
+
+  def main(args: Array[String]) {
+
+	val factorialRecursion = new FactorialRecursion()
+	println(factorialRecursion.factorial_Recursive_Recursive(5))
+  
+  }
+
+}
+ 
+Tail Recursion: (scala)
+
+import java.math.BigInteger
+import scala.annotation.tailrec
+
+class FactorialTailRecursion {
+
+  @tailrec
+  final def factorial_Recursive_Iterative(factorial : BigInteger, number: Int) : BigInteger = {
+
+	if(number == 1)
+		factorial
+	else
+		factorial_Recursive_Iterative(factorial.multiply(new BigInteger(number.toString)), number - 1)
+
+  }
+
+}
+
+object factorialTailRecursionObject {
+
+  def main(args: Array[String]) {
+
+	val factorialTailRecursion = new FactorialTailRecursion()
+	println(factorialTailRecursion.factorial_Recursive_Iterative(BigInteger.ONE, 5))
+
+  }
+
+}

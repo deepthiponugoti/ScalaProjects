@@ -1,0 +1,32 @@
+require_relative "../src/RodCutter"
+require 'test/unit'
+
+class RodCutterTest < Test::Unit::TestCase
+
+  def test_Canary
+    assert_true(true)
+  end
+  
+  def testGetOptimalCutsForLengthZero
+	rodCutter = RodCutter.new
+	prices = {1 => 1, 2 => 2, 3 => 3, 4 => 4}
+	expectedProfit = 0
+	expectedCuts = []
+	actualProfit, actualCuts = rodCutter.getOptimalCuts(0, prices)
+	assert_equal(expectedProfit, actualProfit)
+	assert_equal(expectedCuts, actualCuts)
+	
+  end
+  
+  def testGetOptimalCutsForLengthOne
+	rodCutter = RodCutter.new
+	prices = {1 => 1, 2 => 2, 3 => 3, 4 => 4}
+	expectedProfit = 1
+	expectedCuts = [1]
+	actualProfit, actualCuts = rodCutter.getOptimalCuts(1, prices)
+	assert_equal(expectedProfit, actualProfit)
+	assert_equal(expectedCuts, actualCuts)
+  end  
+
+  	
+ end

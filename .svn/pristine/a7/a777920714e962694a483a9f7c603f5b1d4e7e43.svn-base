@@ -1,0 +1,6 @@
+create.Pizza
+  spread sauce
+  spread cheese
+  toppings (onions, jalapenos, green_pepper)
+  spread cheese
+  bake

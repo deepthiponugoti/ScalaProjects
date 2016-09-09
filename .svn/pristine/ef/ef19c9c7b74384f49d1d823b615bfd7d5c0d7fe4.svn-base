@@ -1,0 +1,22 @@
+[Venkat 10/19/15 05:08 AM CEST]
+review: revisit the syntax
+
+Looking at the dsl.txt, new is a smell, create would be so much better. Also,
+would Scala support the syntax given in the file or do we have to make some changes
+to the syntax to make it compatible with Scala?
+
+Once you decide on the syntax, start with the first test to process a pice of
+code like the first line alone. Then incrementally we can get to the following
+lines in the modified syntax.
+
+------------------------------------------------------------------------------
+[Venkat 10/18/15 04:04 AM CEST]
+review: let's get a grasp of fluency first
+
+We see new in the setup. Do we want to be using new?
+Jot down a sample DSL first in a file. Let's examine that and see if it
+is fluent enough and, at the same time, feasible to implement in the language.
+
+Once we have an idea what to create, we can then test drive it.
+
+------------------------------------------------------------------------------

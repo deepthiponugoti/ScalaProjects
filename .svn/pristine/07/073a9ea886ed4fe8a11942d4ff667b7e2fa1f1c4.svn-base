@@ -1,0 +1,31 @@
+import org.junit.Assert._
+import org.junit.Test
+
+class CuttingRodTest{
+
+  @Test
+  def testCanary = {
+    assertTrue(true)
+  }
+  
+  @Test
+  def testFortotalCostOfPatternForNoPattern = {
+	var cuttingRod = new CuttingRod()
+	var cost = List(1, 2, 3) //Venkat: how about storing as a Map instead of list?
+	var pattern = Nil //Venkat: smell, should not use, besides what is a pattern? Don't know that that means. cuts?
+
+    assertEquals(0, cuttingRod.totalCostOfPattern(cost, pattern) )
+  //Venkat: The function should be something like computeOptimalCuts. The result should be the max revenue and the cuts for that revenue.
+  }
+  
+  @Test
+  def testFortotalCostOfPatternForPattern = {
+	var cuttingRod = new CuttingRod()
+	var cost = List(3, 12, 9, 7, 4)
+	var pattern = List(1, 3, 4)
+	
+    assertEquals(19, cuttingRod.totalCostOfPattern(cost, pattern) )
+  }
+  
+ 
+}

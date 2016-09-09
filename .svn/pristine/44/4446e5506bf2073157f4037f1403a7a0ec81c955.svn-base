@@ -1,0 +1,31 @@
+class RodCutter {
+
+//Venkat: Lets' refactor the code to simplify this. This looks overly cluttered.
+//Change this function to getOptimalCutsForSplit which takes three arguments, split, length, and prices.
+//Return from this function the same result type as getOptimalCuts returns. Within this function call
+//getOptimalCuts twice, one for split and line for (length - split). Then combine the revenue of the two calls
+//and also the lists correctly.
+  def getAllTheCuts(prices: Map[Int, Int], length: Int) : List[Any] = {
+    length match {
+      case x if x <= 0 => List()
+      case _ => {
+        Stream.range(0, length/2).foldLeft[List[Any]](prices.keys.filter(key => key == length).toList){
+          (list, i) => List(list) ::: (List(getAllTheCuts(prices, i + 1) ++ getAllTheCuts(prices, length - i - 1)))
+        }
+      }
+    }
+  }
+
+	def getOptimalCuts(length: Int, prices: Map[Int, Int]) = {
+		length match {
+			case x if x <= 0 => (0, List(List()))
+			case _ => if(prices.exists(_._1 < length))
+        (length, getAllTheCuts(prices, length))
+      else
+        (prices.getOrElse(length, 0), List(List(length)))
+//Venkat: Let's refactor this. Here loop through split values from 1 to length - 1. Call getOptimalCutsForSplit that many times
+//and for the maximum revenue, combine the results. Make it work, then make it better.
+		}
+	}
+}
+

@@ -1,0 +1,24 @@
+class RodCutter {
+
+  def getAllTheCuts(prices: Map[Int, Int], length: Int) : List[Any] = {
+    length match {
+      case x if x <= 0 => List()
+      case _ => {
+        Stream.range(0, length/2).foldLeft[List[Any]](prices.keys.filter(key => key == length).toList){
+          (list, i) => List(list) ::: (List(getAllTheCuts(prices, i + 1) ++ getAllTheCuts(prices, length - i - 1)))
+        }
+      }
+    }
+  }
+
+	def getOptimalCuts(length: Int, prices: Map[Int, Int]) = {
+		length match {
+			case x if x <= 0 => (0, List(List()))
+			case _ => if(prices.exists(_._1 < length))
+        (length, getAllTheCuts(prices, length))
+      else
+        (prices.getOrElse(length, 0), List(List(length)))
+		}
+	}
+}
+

@@ -1,0 +1,15 @@
+-module(sorting_tail).
+-export([sorting_tail_recursion/1]).
+
+sorting_tail_recursion([]) -> [];
+sorting_tail_recursion([H|T]) ->
+  {Lessers, Greaters} = sorting_tail_recursion(H, T),
+  sorting_tail_recursion(Lessers) ++ [H] ++ sorting_tail_recursion(Greaters).
+
+sorting_tail_recursion(Pivot, Tail) -> sorting_tail_recursion(Pivot, [], [], Tail).
+
+sorting_tail_recursion(_, Lessers, Greaters, []) -> {Lessers, Greaters};
+sorting_tail_recursion(Pivot, Lessers, Greaters, [Head | Tail]) when Head < Pivot ->
+  sorting_tail_recursion(Pivot, [Head | Lessers], Greaters, Tail);
+sorting_tail_recursion(Pivot, Lessers, Greaters, [Head | Tail]) when Head >= Pivot ->
+  sorting_tail_recursion(Pivot, Lessers, [Head | Greaters], Tail).

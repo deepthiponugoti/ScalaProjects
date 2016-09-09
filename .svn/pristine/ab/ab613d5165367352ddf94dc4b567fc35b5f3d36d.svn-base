@@ -1,0 +1,32 @@
+class Pizza
+
+	def initialize
+		@@layers = String.new
+	end
+
+	def getLayers
+		@@layers
+	end
+
+	def spread(item)
+		@@layers += item
+	end
+
+	def sauce
+		"sauce "
+	end
+
+	def cheese
+		"cheese "
+	end
+
+end
+
+def create(item, &block)
+	pizzaObj = Pizza.new
+	pizzaObj.instance_eval &block if block_given?
+	pizzaObj
+end
+
+def pizza
+end

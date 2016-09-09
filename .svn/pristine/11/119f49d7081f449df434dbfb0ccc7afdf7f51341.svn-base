@@ -1,0 +1,27 @@
+Homework 2: Due 11:59PM October 16
+
+What is referential transparency? Discuss. What are the benefits. Give examples.
+
+Referential Transparency is where a compiler can replace a call to a method with the result of the method call if the input is same. 
+
+For example, consider 'squareOfNumber' function
+
+int squareOfNumber(int n)
+{
+	return n * n; 
+}
+
+We can see that if we send exactly the same input to the function 'squareOfNumber' it would return the same output, no matter the number of times the function  is called. This is possible because it is not affected by any outside environment ( i.e., function value is independent of outside variables ),  and is also not influenced by the outside context. So, the compiler can replace the method call with its return value, which refers to referentially transparent. 
+
+Referential transparency is one of the principles of (pure) functional languages. Purely functional languages define their functions such that they do not have any side-effects. If the functions are immutable then we cannot change the state of any variables used in the functions and hence they become referentially transparent.
+
+
+Benefits of referential transparency are:
+
+1.  As referential transparency expressions or functions don’t have side effects, so it does-not matter whether you calculate it now or later. This helps in applying program transformations including code optimization and partial evaluations at compile-time. It also supports concurrent executions, parallelization which are useful while performing compiler optimizations.
+
+2. They are easy to test as it takes an input and gives an output. Writing unit test cases for these type of functions is easy when compared to the functions where mutability happens.
+
+3. Only referentially transparent functions can be memoized i.e., they can be transformed into equivalent functions which cache results, which also helps in code optimization.
+
+4. It also helps in lazy evaluation, which means that expressions are not evaluated when they are bound to variables, but their evaluation is deferred until their results are needed by other computations. 

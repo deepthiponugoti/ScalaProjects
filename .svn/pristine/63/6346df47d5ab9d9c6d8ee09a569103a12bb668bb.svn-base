@@ -1,0 +1,13 @@
+class RodCutter {
+  
+	def getOptimalCuts(length : Int, prices : Map[Int, Int])= {
+		length match {
+			case x if x <= 0 => (0, List(List()))
+			case _ => if(prices.exists(_._1 == length))
+        (prices.getOrElse(length, 0), List(List(length)))
+      else
+        (0, List(List()))
+		}
+	}
+}
+

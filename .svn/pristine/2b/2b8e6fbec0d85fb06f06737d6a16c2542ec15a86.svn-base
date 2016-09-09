@@ -1,0 +1,97 @@
+Homework 3: Due 11:59PM November 20
+
+Pick JavaScript as one example and some other language you actually used in this course in one of the assignments.
+
+Mention the name of that language and discuss the similarities and differences of that language and JavaScript. Give
+examples.
+
+One of the languages we used in this course is Java.
+
+Java is a statically and strongly typed language where as JavaScript is dynamically and weakly typed language.  
+
+Hoisting and lexical scoping are some of the of the important concepts in JavaScript. We use a lot of closures and lexical scoping in JavaScript. Java supports block based scoping where as JavaScript supports function based scoping.
+
+JavaScript:
+
+var foo = function() {
+  var value1 = 1;
+  
+  {
+    var value2 = 2;
+    console.log(value2);
+  }
+  
+  console.log(value1);
+  console.log(value2);
+}
+
+foo();
+//console.log(value1); //ERROR
+//console.log(value2); //ERROR
+
+We do not have block scoping in JavaScript. So, we can print value2 inside foo. As we declared the variables value1, value2 as var, the variables are not visible outside the function foo(function based scoping).
+
+Java:
+
+public void foo(){
+        int value1 = 1;
+        {
+            int value2 = 2;
+            System.out.println(value2);
+        }
+
+        System.out.println(value1);
+        System.out.println(value2);	//ERROR (Unresolved symbol value2)
+}
+
+When dealing with exceptions, JavaScript can throw any type of exceptions where as in Java we need to specify the type of exceptions thrown or caught. 
+
+JavaScript:
+
+var max = function() {
+  if(arguments.length > 0)
+    return Math.max.apply(null, arguments);
+  else
+    throw "input is empty";
+}
+
+Java:
+
+ public ImmutablePair<String,Integer> parseInfoForISBN(String ISBNNumber)
+    {
+        try {
+            Document htmlcontent = Jsoup.connect("http://www.amazon.com/exec/obidos/ASIN/" + ISBNNumber).get();
+            return ImmutablePair.of(getTitleOfTheBook(htmlcontent.getElementById("productTitle")), getNumberOfReviews(htmlcontent.getElementById("acrCustomerReviewText")));
+        }
+        catch (IOException ex) {
+            throw new RuntimeException("Unable to connect to Amazon.com for " + ISBNNumber); 
+        }
+    }
+ 
+There is no concept called constructors in JavaScript. It is just that constructor is another function. We do not create classes in JavaScript. We create constructors. However, we create classes, objects and constructors in Java. 
+
+JavaScript:
+
+var Car = function() { //This is a constructor, but we call it a class
+  console.log("Creating Car"); 
+}
+
+var car1 = new Car(); //this is how to create an instance of this class
+console.log(car1);
+
+Java:
+
+public class Sample {
+    public void foo(){
+        int value1 = 1;
+        int value2 = 2;
+        System.out.println(value2);
+		System.out.println(value1);
+    }
+}
+
+Sample sample = new Sample(); //this creates a new instance of the class Sample 
+
+JavaScript supports prototypal inheritance (object based) which acts as a greater benefit to it where as Java supports class based inheritance.
+
+Both Java 8 and JavaScript support functional style of programming.

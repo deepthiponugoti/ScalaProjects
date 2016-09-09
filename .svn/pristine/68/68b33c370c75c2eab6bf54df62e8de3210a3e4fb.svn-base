@@ -1,0 +1,17 @@
+This code is not in any specific language; it's a pseudo-code.
+
+values = [1, 2, 3]
+factor = 4
+values.foreach { e -> print(e * factor) }
+factor = 7
+
+Is the lambda expression / closure passed to foreach a pure function?
+Explain, giving reason for your observation.
+
+A pure function has two main features.
+ a) function always gives out the same result for same arguments,
+ b) should not cause any side effects, i.e, it should not change any mutable objects which are passed to it.
+ 
+ The lambda expression / closure passed to foreach here does not have any side effects as it is not changing any mutable objects.
+ But, it depends on the outside parameter 'factor' so, the output of the function varies depending on the 'factor' value for the same input list. 
+ So, it is not a pure function. 

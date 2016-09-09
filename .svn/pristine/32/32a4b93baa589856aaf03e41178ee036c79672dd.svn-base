@@ -1,0 +1,16 @@
+A purely functional language does not permit functions with side-effects. However, a realistic program cannot survive without side-effects. What do pure-functional languages do to get around these concerns? Explain.
+
+A pure functional language can't have side effects. If the language is side effect free, it provides Referential Transparency. (If expressions A and B has 
+no sides effects then we execute A followed by B or B followed by A or even execute them concurrently. It is called Referential transparency). But some 
+functional languages extend their purely functional core with side effects. To prevent the side effects purely functional langauages use Monads. Monad is 
+a structure that represents computations. Purely functional programs can use monads to structure procedures that include sequenced operations. Monad is 
+something that is useful to make the sequence of calls explicit. This will help us to minimize side effects. While the language remains pure and referentially 
+transparent, monads can provide implicit state by threading it inside them. The compiler does not even have to know about the imperative features because the 
+language itself remains pure. 
+
+Types of monads:
+
+MayBe monad
+IO monad 
+Logger monad
+List Monad

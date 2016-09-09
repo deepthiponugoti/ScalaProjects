@@ -1,0 +1,40 @@
+class RodCutter
+
+  def getOptimalCutsForSplit(split, length, prices)
+    revenueForFirstSplit, cutsForFirstSplit = getOptimalCuts(split, prices)
+    revenueForSecondSplit, cutsForSecondSplit = getOptimalCuts(length - split, prices)
+    revenue = revenueForFirstSplit + revenueForSecondSplit
+    permutationOfBothCuts = cutsForFirstSplit.flat_map { |cutFromTheTupleOfSplit|
+      cutsForSecondSplit.map{ |cutFromTheTupleOfLengthMinusSplit| (cutFromTheTupleOfSplit + cutFromTheTupleOfLengthMinusSplit) }
+    }
+
+    [revenue, permutationOfBothCuts]
+  end
+
+  def maxOfCuts(firstCut, secondCut)
+    firstCutRevenue, firstCutCuts = firstCut
+    secondCutRevenue, secondCutCuts = secondCut
+    if firstCutRevenue > secondCutRevenue
+      firstCut
+    elsif firstCutRevenue == secondCutRevenue
+      [firstCutRevenue, firstCutCuts + secondCutCuts]
+    else
+      secondCut
+    end
+  end
+
+  def getOptimalCuts(length, prices)
+    if length <= 0
+      [0, [[]]]
+    else
+      profitAndCutOfGivenLength = [prices[length], [[length]]]
+      combinedMaxRevenue, combinedListWithMaxRevenue = (1..length - 1).inject(profitAndCutOfGivenLength){ |maxOfLastTwoCuts, i|
+        maxOfCuts(maxOfLastTwoCuts, getOptimalCutsForSplit(i, length, prices))
+      }
+      listOfCutsSorted = combinedListWithMaxRevenue.map{|cuts| cuts.sort}
+
+      [combinedMaxRevenue, listOfCutsSorted.sort.uniq]
+    end
+
+  end
+end

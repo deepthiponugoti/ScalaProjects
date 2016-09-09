@@ -1,0 +1,5 @@
+What is applicative order? Give a working example to illustrate this in a language of your choice.
+Discuss here, but put the code in a separate file with proper extension. Ensure the code works..
+
+If the operators and parameters are evaluated before procedure is evaluated then it is called applicative order. For example if square(2+3), in applicative order, 2+3 is evaluated first and then square(5) is executed as 5*5.
+This is efficient, also removes duplicate computations. Here in the example instead of computing 2+3 two times, it reduced the number of addition computations by computing it first.

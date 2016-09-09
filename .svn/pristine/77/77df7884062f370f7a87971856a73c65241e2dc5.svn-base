@@ -1,0 +1,62 @@
+require_relative "../src/Perfect_number"
+require 'test/unit'
+
+class PerfectNumberTest < Test::Unit::TestCase
+
+  def test_Canary
+    assert_true(true)
+  end
+
+  def test_sumOfFactors
+    assert_equal(12, PerfectNumber.new.sumOfFactors(6))
+  end
+
+  def test_isFactor
+    assert_true(PerfectNumber.new.isFactor(64, 8))
+  end
+
+  def test_isFactorForFalseCondition
+    assert_false(PerfectNumber.new.isFactor(64, 9))
+  end
+
+  def test_isPerfectNumberForPerfectNumber
+    assert_true(PerfectNumber.new.isPerfectNumber(6))
+  end
+
+  def test_isPerfectNumberForNegativeNumber
+    assert_false(PerfectNumber.new.isPerfectNumber(-6))
+  end
+
+  def test_isPerfectNumberForZero
+    assert_false(PerfectNumber.new.isPerfectNumber(0))
+  end
+
+  def test_isPerfectNumberForOne
+    assert_false(PerfectNumber.new.isPerfectNumber(1))
+  end
+
+  def test_isPerfectNumberForNotAPerfectNumber
+    assert_false(PerfectNumber.new.isPerfectNumber(8))
+  end
+
+  def test_isPerfectNumberFunctionalStyleForPerfectNumber
+    assert_true(PerfectNumber.new.isPerfectNumberFunctionalStyle(6))
+  end
+
+  def test_isPerfectNumberFunctionalStyleForNegativeNumber
+    assert_false(PerfectNumber.new.isPerfectNumberFunctionalStyle(-6))
+  end
+
+  def test_isPerfectNumberFunctionalStyleForZero
+    assert_false(PerfectNumber.new.isPerfectNumberFunctionalStyle(0))
+  end
+
+  def test_isPerfectNumberFunctionalStyleForOne
+    assert_false(PerfectNumber.new.isPerfectNumberFunctionalStyle(1))
+  end
+
+  def test_isPerfectNumberFunctionalStyleForNotAPerfectNumber
+    assert_false(PerfectNumber.new.isPerfectNumberFunctionalStyle(8))
+  end
+
+end

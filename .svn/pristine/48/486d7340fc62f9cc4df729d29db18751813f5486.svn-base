@@ -1,0 +1,88 @@
+package Assignment1;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import static junit.framework.TestCase.assertFalse;
+import static org.junit.Assert.*;
+
+public class PerfectNumberTest {
+
+    PerfectNumber perfectNumber;
+
+    @Test
+    public void testCanary(){
+        assertTrue(true);
+    }
+
+    @Before
+    public void setUp()
+    {
+        perfectNumber = new PerfectNumber();
+    }
+
+    @Test
+    public void testSumOfFactors(){
+        assertEquals(12, perfectNumber.sumOfFactors(6));
+    }
+
+    @Test
+    public void testIsFactor(){
+        assertTrue(perfectNumber.isFactor(64, 8));
+    }
+
+    @Test
+    public void testIsFactorForFalseCondition(){
+        assertFalse(perfectNumber.isFactor(64, 9));
+    }
+
+    @Test
+    public void testIsPerfectNumberForNegativeNumber(){
+        assertFalse(perfectNumber.isPerfectNumber(-6));
+    }
+
+    @Test
+    public void testIsPerfectNumberForZero(){
+        assertFalse(perfectNumber.isPerfectNumber(0));
+    }
+
+    @Test
+    public void testIsPerfectNumberForOne(){
+        assertFalse(perfectNumber.isPerfectNumber(1));
+    }
+
+    @Test
+    public void testIsPerfectNumberForPerfectNumber(){
+        assertTrue(perfectNumber.isPerfectNumber(6));
+    }
+
+    @Test
+    public void testIsPerfectNumberForNotPerfectNumber(){
+        assertFalse(perfectNumber.isPerfectNumber(8));
+    }
+
+    @Test
+    public void testisPerfectNumberFunctionalStyleForPerfectNumber(){
+        assertTrue(perfectNumber.isPerfectNumberFunctionalStyle(6));
+    }
+
+    @Test
+    public void testisPerfectNumberFunctionalStyleForNegativeNumber(){
+        assertFalse(perfectNumber.isPerfectNumberFunctionalStyle(-6));
+    }
+
+    @Test
+    public void testisPerfectNumberFunctionalStyleForZero(){
+        assertFalse(perfectNumber.isPerfectNumberFunctionalStyle(0));
+    }
+
+    @Test
+    public void testisPerfectNumberFunctionalStyleForOne(){
+        assertFalse(perfectNumber.isPerfectNumberFunctionalStyle(1));
+    }
+
+    @Test
+    public void testisPerfectNumberFunctionalStyleForNotPerfectNumber(){
+        assertFalse(perfectNumber.isPerfectNumberFunctionalStyle(8));
+    }
+}

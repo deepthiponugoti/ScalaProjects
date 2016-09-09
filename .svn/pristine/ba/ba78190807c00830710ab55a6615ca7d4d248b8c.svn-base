@@ -1,0 +1,181 @@
+Homework 3: Due 11:59PM November 20
+
+Pick JavaScript as one example and some other language you actually used in this course in one of the assignments.
+
+Mention the name of that language and discuss the similarities and differences of that language and JavaScript. Give
+examples.
+
+One of the languages we used in this course is Ruby.
+
+Both Ruby and JavaScript are dynamically typed languages.  
+
+For example,
+
+In Ruby:
+value = 3
+value = "hello"
+value = 14.5
+
+All the above are valid and the type of the variable is resolved at run-time based on the value assigned to it. Ruby does not complain about this.
+
+In JavaScript:
+var value = 3;
+value = "hello";
+
+This is even valid in JavaScript.
+
+Ruby is strongly typed where as JavaScript is weakly typed language.
+
+For example,
+
+In Ruby:
+value = "3"
+new_value = value + 3 is not valid.
+
+This is because the language expects something to be done with the variable that makes sense.
+
+In JavaScript:
+value = "3"
+new_value = value + 3 is valid.
+
+And the output is 33. This is because JavaScript converts the latter addition to concatenation.
+
+Hoisting and lexical scoping are some of the of the important concepts in JavaScript. We use a lot of closures and lexical scoping in JavaScript. However, ruby methods does not support lexical scoping. If you want to capture outer variables, a Proc can be used. It is closure that captures outer variables.
+
+For example,
+
+In JavaScript,
+var isGT = function(pivot) { 
+  var check = function(n) {
+    return n > pivot;
+  }
+  return check;
+}
+Here, pivot is coming from the defining scope(lexical scope).
+
+In ruby,
+def printing_values
+  outer_variable = "outer"
+  inner_method = lambda do
+    outer_variable = "inner"
+  end
+
+  outer_variable # "outer"
+  inner_method.call
+  a # "inner"
+end
+
+Ruby supports block based scoping where as JavaScript supports function based scoping.
+
+JavaScript:
+
+var foo = function() {
+  var value1 = 1;
+  
+  {
+    var value2 = 2;
+    console.log(value2);
+  }
+  
+  console.log(value1);
+  console.log(value2);
+}
+
+foo();
+//console.log(value1); //ERROR
+//console.log(value2); //ERROR
+
+We do not have block scoping in JavaScript. So, we can print value2 inside foo. As we declared the variables value1, value2 as var, the variables are not visible outside the function foo(function based scoping).
+
+Ruby:
+
+(1..5).each do |x|
+  print x
+end
+x # undefined local variable or method `x'
+
+When dealing with exceptions, JavaScript and ruby can throw any type of exceptions. We can also specify the type of exception to be thrown in ruby by sending it as an argument to raise function. 
+
+JavaScript:
+
+var max = function() {
+  if(arguments.length > 0)
+    return Math.max.apply(null, arguments);
+  else
+    throw "input is empty";
+}
+
+Ruby:
+
+ def raise_exception  
+  puts 'I am before the raise.'  
+  raise 'An exception'  
+  puts 'I am after the raise'  
+end  
+
+ 
+There is no concept called constructors in JavaScript. It is just that constructor is another function. We do not create classes in JavaScript. We create constructors. However, we create classes, objects and constructors in Ruby. 
+
+JavaScript:
+
+var Car = function() { //This is a constructor, but we call it a class
+  console.log("Creating Car"); 
+}
+
+var car1 = new Car(); //this is how to create an instance of this class
+console.log(car1);
+
+Ruby:
+
+class Pizza
+
+	attr_accessor :layers
+
+	def initialize(theLayers)
+		@layers = theLayers
+	end
+end
+
+pizzaObj = Pizza.new(String.new) #this creates a new instance of the class Pizza 
+
+
+JavaScript supports prototypal inheritance (object based) which acts as a greater benefit to it where as Ruby supports class based inheritance.
+
+JavaScript:
+var Car = function(year) {
+  this.year = year;
+}
+
+Car.prototype.miles = 0;
+Car.prototype.drive = function(dist) {
+  this.miles += dist;
+}
+
+var car1 = new Car(2015);
+console.log(car1.miles); // 0
+
+car1.drive(10);
+
+console.log(car1.miles); // 10
+
+Here, miles variable is inherited from the car prototype.
+
+Ruby:
+
+class Rectangle
+  def initialize(width, height)
+    @width, @height = width, height
+  end
+  def area
+    @width * @height
+  end
+end
+class Square < Rectangle
+  def initialize(width)
+    super(width, width)
+  end
+end
+
+Square.new(10).area # 100
+
+Both Ruby and JavaScript support functional style of programming.

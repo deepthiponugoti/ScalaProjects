@@ -1,0 +1,12 @@
+-module(fibonacci_series).
+-export([fibonacciSeriesRecursion/1]).
+
+fibonacciSeriesRecursion(N) -> [N + 1].
+
+%% fibonacciSeriesRecursion(N) when N < 0 -> [];
+%% fibonacciSeriesRecursion(N) when N == 0 -> [1];
+%% fibonacciSeriesRecursion(N) when N == 1 -> [1, 1];
+%% fibonacciSeriesRecursion(N) when N > 1 ->
+%%   ListOfNumbers = fibonacciSeriesRecursion(N-1),
+%%   LengthOfList = length(ListOfNumbers),
+%%   ListOfNumbers ++ [lists:nth(LengthOfList, ListOfNumbers) + lists:nth(LengthOfList - 1, ListOfNumbers)].

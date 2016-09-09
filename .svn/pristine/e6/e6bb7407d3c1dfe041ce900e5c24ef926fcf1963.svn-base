@@ -1,0 +1,44 @@
+class RodCutter
+
+  def get_optimal_cuts_for_split(split, length, prices)
+    revenue_for_first_split, cuts_for_first_split = get_optimal_cuts(split, prices)
+    revenue_for_second_split, cuts_for_second_split = get_optimal_cuts(length - split, prices)
+    revenue = revenue_for_first_split + revenue_for_second_split
+    permutation_of_both_cuts = cuts_for_first_split.flat_map { |cut_from_the_first_split|
+      cuts_for_second_split.map{ |cut_from_the_second_split| (cut_from_the_first_split + cut_from_the_second_split).sort }
+    }
+
+    [revenue, permutation_of_both_cuts]
+  end
+
+  def max_of_cuts(first_cut, second_cut)
+    first_cut_revenue, first_cut_cuts = first_cut
+    second_cut_revenue, second_cut_cuts = second_cut
+    case
+      when first_cut_revenue > second_cut_revenue
+        first_cut
+      when first_cut_revenue == second_cut_revenue
+        [first_cut_revenue, first_cut_cuts + second_cut_cuts] # call .uniq here on the result of +
+      else
+        second_cut
+    end
+  end
+
+  def get_optimal_cuts(length, prices)
+    if length <= 0
+      [0, [[]]]
+    else
+      prices.default = 0
+      profit_and_cut_of_given_length = [prices[length], [[length]]]
+#Venkat: I noticed where you were calling distinct in Scala, but that was not a problem. However, the same seems to get really smelly here.
+#let's refactor. Remove the last line in this function. Remove the = and what is to the left. Return the result of call to inject directly here.
+#Then in code above, place .uniq (in the max_of_cuts function)
+      combined_max_revenue, combined_list_with_max_revenue = (1..length - 1).inject(profit_and_cut_of_given_length){ |max_of_last_two_cuts, split|
+        max_of_cuts(max_of_last_two_cuts, get_optimal_cuts_for_split(split, length, prices))
+      }
+
+      [combined_max_revenue, combined_list_with_max_revenue.uniq]
+    end
+
+  end
+end

@@ -1,0 +1,9 @@
+Is there any difference between typing in Java/C# vs. typing in C/C++?
+Discuss.
+
+
+Statically typed language -- a language which requires compile-time enforcement of a type system.
+
+Dynamically typed language -- a language which provides information about types at runtime, and may permit operations based on that information.
+
+By these definitions, C++ is both. Both C++ and Java have static type checking. However, C++'s static typing system is much stronger, especially with respect to templates. C++ provides runtime facilities for typing as well (RTTI, typeid, dynamic_cast), but these are language/library features which one can do entirely without, often with good justification. C++ generally abides by the philosophy that if you can perform the necessary determinations statically (i.e. at compile time), you're better off doing that than paying the runtime cost of determining them dynamically. By contrast,in Java you pretty much agree up front to pay the cost for dynamic typing, so it finds its way into standard Java idioms pretty extensively. It's handy to have this available in Java, because of the diminished static typing as compared to C++.

@@ -1,0 +1,11 @@
+$pizza = "pizza"
+$Pizza = "Pizza"
+$sauce = "sauce"
+
+def create(pizza)
+	$layers = String.new
+end
+
+def spread(item)
+	$layers += item + " "
+end

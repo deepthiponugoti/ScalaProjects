@@ -1,0 +1,16 @@
+Homework 2: Due 11:59PM October 16
+
+What is referential transparency? Discuss. What are the benefits. Give examples.
+
+Referential Transparency is where compiler can replace the method with the result of the method if the input is same. 
+
+For example, consider squareOfNumber function
+
+int squareOfNumber(int n)
+{
+	return n*n;
+}
+
+We can see that if we send exactly same input to the function 'squareOfNumber' it would return same output, no matter the number of times the function calls are being made. Also it is not affected by any outside environment ( i.e., function value is independent of outside variables ),  and is also not influenced by the outside context. So, the compiler can replace the method call with its return value which refers to referentially transparent. 
+
+An expression or function is said to be referentially transparent if it can be replaced with its value without changing the behaviour of a program i.e., the program returns the same value for same input. It is possible only the expression or  method does not have any side effects. A function or expression is said to have a side effect if it modifies some state or has an observable interaction with calling functions or the outside environment. Expressions with functions involved in them can be referentially transparent only if they are pure functions. Pure functions is a function that has no side effects.

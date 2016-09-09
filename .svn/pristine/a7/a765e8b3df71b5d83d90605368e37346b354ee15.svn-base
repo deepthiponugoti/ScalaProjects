@@ -1,0 +1,30 @@
+require_relative "../src/Pizza_dsl"
+require 'test/unit'
+
+class PizzaDslTest < Test::Unit::TestCase
+
+  def test_Canary
+    assert_true(true)
+  end
+
+  def test_for_creating_pizza
+    pizzaObj = create pizza
+    assert_equal("", pizzaObj.getLayers) //Venkat: In ruby we do not use get functions. Instead use attr_accessor :layer in the class    
+  end
+
+  def test_for_creating_pizza_spreading_sauce
+     pizzaObj = create pizza do
+                  spread sauce
+                end
+    assert_equal("sauce ", pizzaObj.getLayers)
+  end
+
+  def test_for_creating_pizza_spreading_sauce_spreading_cheese
+    pizzaObj = create pizza do
+                 spread sauce
+                 spread cheese
+               end
+    assert_equal("sauce cheese ", pizzaObj.getLayers)
+  end
+  
+end

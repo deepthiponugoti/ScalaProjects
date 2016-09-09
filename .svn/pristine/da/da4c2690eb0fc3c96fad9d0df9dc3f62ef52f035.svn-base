@@ -1,0 +1,41 @@
+class Pizza{
+  private var layers = ""
+//Venkat: Would StringBuilder make more sense for layer instead of string?
+
+  def spread(item : String) : Pizza = {
+    layers += item + " "
+    println(item)
+//Venkat: Remove all println from this file
+    this
+  }
+
+  def toppings(items : String*) : Pizza = {
+    layers += items.mkString(" ") + " "
+    println(items.mkString(" "))
+    this
+  }
+
+  def bake : Pizza = {
+    this
+  }
+
+  def getLayers = layers
+}
+
+object Pizza{
+  val sauce = "sauce"
+  val cheese = "cheese"
+  val onions = "onions"
+  val green_pepper = "green_pepper"
+  val black_olives = "black_olives"
+  val jalapenos = "jalapenos"
+}
+
+object create{
+  def pizza : Pizza = new Pizza
+//Venkat: reduced noise of {
+  
+  def Pizza : Pizza = {
+    new Pizza
+  }
+}

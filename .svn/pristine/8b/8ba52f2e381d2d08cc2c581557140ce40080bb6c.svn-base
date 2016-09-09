@@ -1,0 +1,14 @@
+[Venkat 09/22/15 07:31 AM MDT]
+review: reduce
+
+see suggestion in code. Move forward
+
+------------------------------------------------------------------------------
+[Venkat 09/21/15 05:48 AM MDT]
+review: good start, refactor
+
+Nice tests.
+
+Reduce code. Use match and case (Pattern matching) instead of if and else.
+
+------------------------------------------------------------------------------

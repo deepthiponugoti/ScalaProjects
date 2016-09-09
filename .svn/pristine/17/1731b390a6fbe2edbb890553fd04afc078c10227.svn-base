@@ -1,0 +1,33 @@
+class Pizza
+	def initialize
+		@@layers = String.new
+#Venkat: @@ means static - bad idea
+	end
+
+	def getLayers
+		@@layers
+	end
+
+	def spread(item)
+		@@layers += item
+	end
+
+//Venkat: Instead of the two functions below, use method missing.
+	def sauce
+		"sauce "
+	end
+
+	def cheese
+		"cheese "
+	end
+
+end
+
+def create(item, &block)
+	pizzaObj = Pizza.new
+	pizzaObj.instance_eval &block if block_given?
+	pizzaObj
+end
+
+def pizza
+end

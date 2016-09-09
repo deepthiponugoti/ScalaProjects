@@ -1,0 +1,10 @@
+[Venkat 10/18/15 04:04 AM CEST]
+review: let's get a grasp of fluency first
+
+We see new in the setup. Do we want to be using new?
+Jot down a sample DSL first in a file. Let's examine that and see if it
+is fluent enough and, at the same time, feasible to implement in the language.
+
+Once we have an idea what to create, we can then test drive it.
+
+------------------------------------------------------------------------------

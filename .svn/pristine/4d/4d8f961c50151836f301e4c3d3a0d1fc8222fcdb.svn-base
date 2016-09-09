@@ -1,0 +1,23 @@
+import Dsl._
+import org.junit.Assert._
+import org.junit.Test
+
+class DslTest{
+
+  @Test
+  def testCanary = {
+    assertTrue(true)
+  }
+
+  @Test
+  def testForCreatingPizza = {
+    val pizzaObj = "create" one Pizza
+    assertTrue(pizzaObj.isInstanceOf[Pizza])
+  }
+
+  @Test
+  def testForCreatingpizza = {
+    var pizzaObj = "create" one pizza
+    assertTrue(pizzaObj.isInstanceOf[Pizza])
+  }
+}

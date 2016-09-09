@@ -1,0 +1,22 @@
+class PerfectNumber
+    def isFactor(dividend, number)
+        dividend % number == 0
+    end
+
+    def sumOfFactors(number)
+        sumOfFactorsOfNum = 0
+        for i in 1..number
+            sumOfFactorsOfNum += i if isFactor number, i
+        end
+        sumOfFactorsOfNum
+    end
+
+    def isPerfectNumber(number)
+        number > 1 && sumOfFactors(number) == 2 * number
+    end
+
+    def isPerfectNumberFunctionalStyle(number)
+        number > 1 && (1..number).find_all { |i| number % i == 0 }
+                                 .reduce(:+) == number * 2
+    end
+end

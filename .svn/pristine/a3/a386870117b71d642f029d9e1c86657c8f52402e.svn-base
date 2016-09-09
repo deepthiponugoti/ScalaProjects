@@ -1,0 +1,23 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class ApplicativeOrder {
+    public static List<Integer> fibonacciSeries(int position){
+        List<Integer> listOfNumbers = new ArrayList<>(Arrays.asList(1, 1));
+        switch(position){
+            case 0: return Arrays.asList(1);
+            case 1: return Arrays.asList(1, 1);
+            default: while (position-- != 1){
+                listOfNumbers.add(listOfNumbers.get(listOfNumbers.size() - 1) + listOfNumbers.get(listOfNumbers.size() - 2));
+            }
+        }
+        return listOfNumbers;
+    }
+
+    public static void main(String[] args) {
+        List<Integer> series = fibonacciSeries(5);
+        for(int number : series)
+            System.out.println(number);
+    }
+}

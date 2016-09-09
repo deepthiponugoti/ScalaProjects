@@ -1,0 +1,14 @@
+class Pizza{
+}
+
+class Dsl {
+  def one(item : String) = {
+    Class.forName(item.capitalize).newInstance()
+  }
+}
+
+object Dsl{
+  val pizza, Pizza = "pizza"
+
+  implicit def convertString2Dsl(item : String) = new Dsl()
+}

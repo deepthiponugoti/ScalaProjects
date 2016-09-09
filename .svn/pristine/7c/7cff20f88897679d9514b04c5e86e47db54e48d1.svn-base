@@ -1,0 +1,39 @@
+import org.junit.Assert._
+import org.junit.{Before, Test}
+
+class PizzaTest{
+
+  var pizza: Pizza = _
+
+  @Before
+  def setUp() = {
+    pizza = new Pizza()
+  }
+
+  @Test
+  def testCanary = {
+    assertTrue(true);
+  }
+
+  @Test
+  def testForAddingToppingsAtLayerZero = {
+    var expected = Map( 0 -> List("jalapeno", "green_pepper"))
+    pizza toppings("jalapeno", "green_pepper")
+    assertEquals(expected, pizza.mapOfLayers)
+  }
+
+  @Test
+  def testForSpreadingCheeseAtLayerZero = {
+    var expected = Map( 0 -> List("cheese"))
+    pizza spread "cheese"
+    assertEquals(expected, pizza.mapOfLayers)
+  }
+
+  @Test
+  def testForSpreadingCheeseAtLayerZeroAndAddingToppingsAtLayerOne = {
+    var expected = Map( 0 -> List("cheese"), 1 -> List("jalapeno", "green_pepper"))
+    pizza spread "cheese"
+    pizza toppings("jalapeno", "green_pepper")
+    assertEquals(expected, pizza.mapOfLayers)
+  }
+}

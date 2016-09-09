@@ -1,0 +1,27 @@
+Statement: "A statically typed language is one in which the programmer has to specify 
+the full type details for every variable at compile time."
+
+What's your view of that statement—discuss, and provide examples to support your discussion.
+Keep your answer in this file.
+
+No, we do not agree on this statement. In statically typed languages like Java, we specify the full type information as follows:
+
+int value = 1;
+
+Otherwise, the compiler will throw the errors at compile time.
+
+However, this does not mean we need to specify full type information for every variable at compile time for every other statically typed language.
+
+Scala, being statically typed language does not insist on the type information and it automatically infers the type for us. 
+
+Scala: 
+def factorial(number : Int) : Int = {
+    var fact = 1
+	(1 to number).foreach { e => fact *= e }
+	fact
+}
+println(factorial(5))
+
+In the above example, we can see that we did not specify any type information for variable "fact". Scala infered it automatically.  
+
+

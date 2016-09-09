@@ -1,0 +1,30 @@
+-module(fibonacci_series_test).
+
+-include_lib("eunit/include/eunit.hrl").
+
+fibonacciSeriesRecursion_canary_test() ->
+  ?assertEqual([1], [1]).
+
+fibonacciSeriesRecursion_position_0_test() ->
+  ?assertEqual([1], fibonacci_series:fibonacciSeriesRecursion(0)).
+
+fibonacciSeriesRecursion_for_position_1_test() ->
+  ?assertEqual([1, 1], fibonacci_series:fibonacciSeriesRecursion(1)).
+
+fibonacciSeriesRecursion_for_position_2_test() ->
+  ?assertEqual([1, 1, 2], fibonacci_series:fibonacciSeriesRecursion(2)).
+
+fibonacciSeriesRecursion_for_position_4_test() ->
+  ?assertEqual([1, 1, 2, 3, 5], fibonacci_series:fibonacciSeriesRecursion(4)).
+
+fibonacciTailRecursion_position_0_test() ->
+  ?assertEqual([1], fibonacci_series:fibonacciTailRecursion(0)).
+
+fibonacciTailRecursion_for_position_1_test() ->
+  ?assertEqual([1, 1], fibonacci_series:fibonacciTailRecursion(1)).
+
+fibonacciTailRecursion_for_position_2_test() ->
+  ?assertEqual([1, 1, 2], fibonacci_series:fibonacciTailRecursion(2)).
+
+fibonacciTailRecursion_for_position_4_test() ->
+  ?assertEqual([1, 1, 2, 3, 5], fibonacci_series:fibonacciTailRecursion(4)).

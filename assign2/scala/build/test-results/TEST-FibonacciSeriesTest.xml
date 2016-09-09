@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="FibonacciSeriesTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2015-09-27T16:47:11" hostname="Deeps" time="0.153">
+  <properties/>
+  <testcase name="testForThirdPositionOfRegularRecursion" classname="FibonacciSeriesTest" time="0.141"/>
+  <testcase name="testForNegativePositionOfRegularRecursion" classname="FibonacciSeriesTest" time="0.0"/>
+  <testcase name="testForSixthPositionOfRegularRecursion" classname="FibonacciSeriesTest" time="0.001"/>
+  <testcase name="testForZerothPositionOfRegularRecursion" classname="FibonacciSeriesTest" time="0.0"/>
+  <testcase name="testForFirstPositionOfTailRecursion" classname="FibonacciSeriesTest" time="0.001"/>
+  <testcase name="testForSixthPositionOfTailRecursion" classname="FibonacciSeriesTest" time="0.004"/>
+  <testcase name="testForFirstPositionOfRegularRecursion" classname="FibonacciSeriesTest" time="0.0"/>
+  <testcase name="testForZerothPositionOfTailRecursion" classname="FibonacciSeriesTest" time="0.0"/>
+  <testcase name="testForThirdPositionOfTailRecursion" classname="FibonacciSeriesTest" time="0.0"/>
+  <testcase name="testCanary" classname="FibonacciSeriesTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

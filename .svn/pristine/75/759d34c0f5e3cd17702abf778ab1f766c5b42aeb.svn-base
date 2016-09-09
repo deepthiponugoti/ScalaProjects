@@ -1,0 +1,14 @@
+What is normal order? Give a working example to illustrate this in a language of your choice.
+Discuss here, but put the code in a separate file with proper extension. Ensure the code works.
+
+In Normal order the operators and parameters are evaluated only after the procedure is fully evaluated. For example for square(2 + 3), in normal order, it is evaluated as (2 + 3) * (2 + 3) = 5 * 5 = 25. It produces the same result as applicative order, but not as efficient as applicative order. 
+However some times the lazy evaluation is more beneficial as it eliminates the need for computations and push it for later evaluations. 
+
+In the code sample attached, the function fibonacciImmutability() is as follows:
+
+def fibonacciImmutabilty(position: Int) = {
+    lazy val listOfNumbers: Stream[Int] = 1 #:: listOfNumbers.scanLeft(1)(_ + _)
+    listOfNumbers.take(position + 1).toList
+  }
+
+Here the listOfNumbers is declared lazy val. This is a special feature in Scala. This line is executed only when listOfNumbers.take(position + 1).toList is called. Until then, the execution of line 2 is postponed. If listOfNumbers is not used then it wont be evaluated at all.

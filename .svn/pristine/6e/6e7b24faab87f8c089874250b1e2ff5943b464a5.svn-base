@@ -1,0 +1,93 @@
+[Venkat 09/14/15 07:27 AM EDT]
+review: you're done
+
+good job
+
+------------------------------------------------------------------------------
+[Venkat 09/13/15 05:23 AM CEST]
+review: coding complete
+
+good job so far.
+
+------------------------------------------------------------------------------
+[Venkat 09/12/15 06:50 AM CEST]
+review: nice progress
+
+java: done
+
+ruby:
+isPerfectNumberFunctionalStyle: reduce does not need the first argument of 0.
+
+------------------------------------------------------------------------------
+[Venkat 09/11/15 06:22 AM CEST]
+review: refactor
+
+Java: see suggestions in code.
+
+Ruby:
+We'll get to this after we take care of the Java version.
+
+------------------------------------------------------------------------------
+[Venkat 09/10/15 16:38 PM CEST]
+review: refactor, do negative test
+
+Both:
+Write test for negative, 0, and 1 as number values.
+
+Ruby:
+change
+if ...
+  oneline
+end
+
+to
+oneline if ...
+
+Instead of inject, use reduce.
+
+------------------------------------------------------------------------------
+[Venkat 09/09/15 04:47 AM PDT]
+review: refactor
+
+factorOfNumber: This is a bit of a hack. Change to isFactor and return boolean.
+
+Given space around operators like +.
+
+Test:
+change assertEquals(true, ...) to assertTrue(...);
+assertEquals(false, ...) to assertFalse(...);
+
+Remove optimization n/2 or write enough test to prove it is correct.
+
+do check for sum == number * 2;
+
+------------------------------------------------------------------------------
+[Venkat 09/08/15 05:38 AM MDT]
+review: nice progress.
+
+Test:
+testisPerfectNumberFunctionalStyleForNotPerfectNumber:
+Check this test to make sure its correct.
+
+isDivisor: Java convention, method that starts with is should return boolean.
+
+isPerfectNumberFunctionalStyle:
+Java convention, dots should be aligned vertically one below the previous one.
+
+------------------------------------------------------------------------------
+[Venkat 09/06/15 09:10 AM CEST]
+review: nice start
+
+Yay, nice to see tests.
+
+sumOfFactors: Modularize further.
+
+Indent properly.
+
+if(something)
+	return true;
+return false;
+
+is the same as return something;
+
+------------------------------------------------------------------------------

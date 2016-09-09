@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="RodCutterTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2015-11-10T05:10:14" hostname="Deeps" time="0.131">
+  <properties/>
+  <testcase name="testCanary" classname="RodCutterTest" time="0.001"/>
+  <testcase name="testForGetOptimalCutsForPriceListWhereSolutionDoesNotIncludeLengthItself" classname="RodCutterTest" time="0.069"/>
+  <testcase name="testForGetOptimalCutsForLengthTwo" classname="RodCutterTest" time="0.0"/>
+  <testcase name="testForGetOptimalCutsForOneLength" classname="RodCutterTest" time="0.0"/>
+  <testcase name="testForGetOptimalCutsForLengthThree" classname="RodCutterTest" time="0.001"/>
+  <testcase name="testForGetOptimalCutsForZeroLength" classname="RodCutterTest" time="0.0"/>
+  <testcase name="testForGetOptimalCutsForLengthFour" classname="RodCutterTest" time="0.004"/>
+  <testcase name="testForGetOptimalCutsForPriceListWhereSomePricesAreMissing" classname="RodCutterTest" time="0.05"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

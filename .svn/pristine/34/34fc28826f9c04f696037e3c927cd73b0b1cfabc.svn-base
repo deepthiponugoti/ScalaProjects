@@ -1,0 +1,28 @@
+Homework 2: Due 11:59PM October 16
+
+What is referential transparency? Discuss. What are the benefits. Give examples.
+
+Referential Transparency is where [Venkat: a] compiler can replace the [Venkat: 'a call to a' instead of the] method with the result of the method [Venkat: call] if the input is same. 
+
+For example, consider 'squareOfNumber' function
+
+int squareOfNumber(int n)
+{
+	return n*n; [Venkat space around * for readability]
+}
+
+We can see that if we send exactly [Venkat: the] same input to the function 'squareOfNumber' it would return [Venkat: the] same output, no matter the number of times the function [Venkat: is called] calls are being made. Also [Venkat: This is possible because] it is not affected by any outside environment ( i.e., function value is independent of outside variables ),  and is also not influenced by the outside context. So, the compiler can replace the method call with its return value [Venkat: ,] which refers to referentially transparent. 
+
+An expression or function is said to be referentially transparent if it can be replaced with its value without changing the program's semantics i.e., the program returns the same value for same input. It is possible only when the expression or  method does not have any side effects. A function or expression is said to have a side effect if it modifies some state or has an observable interaction with calling functions or the outside environment. Expressions with functions involved in them can be referentially transparent only if the involved functions are pure functions. Pure functions is a function that has no side effects. [Venkat: this entire paragraph seems redundant, remove this if it does not add anything to what has been already said].
+
+Benefits [Venkat: Benefits of referential transparency are:]:
+
+1.  As referential transparency expressions or functions don’t have side effects, so it does-not matter whether you calculate it now or later[Venkat: period. This] which helps in applying program transformations including code optimization and partial evaluations at compile-time. It also supports concurrent executions, parallelization which is essential for compiler optimization [Venkat: not essential, essential is a strong word, means can't do without. It is one, not the main].
+
+2. They are also are [Venkat: remove 'also are'] easy to test as it takes an input and gives an output. Writing unit test cases for these type of functions is easy when compared to the functions where mutability happens.
+
+3. Only referentially transparent functions can be memorized i.e., they can be transformed into equivalent functions which cache results, which also helps in code optimization.
+
+4. It also helps in lazy evaluation, which means that expressions are not evaluated when they are bound to variables, but their evaluation is deferred until their results are needed by other computations. 
+
+

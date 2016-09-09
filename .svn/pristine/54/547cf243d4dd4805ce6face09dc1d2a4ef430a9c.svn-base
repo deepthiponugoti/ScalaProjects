@@ -1,0 +1,25 @@
+require_relative "../src/Pizza_dsl"
+require 'test/unit'
+
+class PizzaDslTest < Test::Unit::TestCase
+
+  def test_Canary
+    assert_true(true)
+  end
+
+  def test_for_creating_pizza
+    create $pizza
+    assert_equal("", $layers)
+  end
+
+   def test_for_creating_Pizza
+     create $Pizza
+     assert_equal("", $layers)
+   end
+
+  def test_for_creating_pizza_spreading_sauce
+    create $pizza 
+      spread $sauce
+    assert_equal("sauce ", $layers)
+  end
+end

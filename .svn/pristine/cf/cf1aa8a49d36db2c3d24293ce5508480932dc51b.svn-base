@@ -1,0 +1,17 @@
+-module(fibonacciSeriesTest).
+-define(NOTEST, true).
+-ifdef(TEST).
+-include_lib("eunit/include/eunit.hrl").
+-endif.
+
+-ifdef(TEST).
+fibonacciSeriesRecursion_for_position_0_test_() ->
+  [ ?_assert(fibonacciSeries:fibonacciSeriesRecursion(0) =:= [1])].
+
+fibonacciSeriesRecursion_for_position_1_test_() ->
+  [ ?_assert(fibonacciSeries:fibonacciSeriesRecursion(1) =:= [1, 1])].
+
+fibonacciSeriesRecursion_for_position_2_test_() ->
+  [ ?_assert(fibonacciSeries:fibonacciSeriesRecursion(2) =:= [1, 1, 2])].
+
+-endif.

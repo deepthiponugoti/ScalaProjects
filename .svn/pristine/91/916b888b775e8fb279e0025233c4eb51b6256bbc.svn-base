@@ -1,0 +1,67 @@
+import org.junit.Assert._
+import org.junit.{Before, Test}
+
+class FibonacciSeriesTest{
+
+  var fibonacciSeries: FibonacciSeries = _
+
+  @Before
+  def setUp() = {
+    fibonacciSeries = new FibonacciSeries()
+  }
+
+  @Test
+  def testCanary = {
+    assertTrue(true);
+  }
+
+  @Test
+  def testForNegativePositionOfRegularRecursion = {
+    assertEquals(List(), fibonacciSeries.fibonacciRecursion(-1))
+  }
+
+  @Test
+  def testForZerothPositionOfRegularRecursion = {
+    assertEquals(List(1), fibonacciSeries.fibonacciRecursion(0))
+  }
+
+  @Test
+  def testForFirstPositionOfRegularRecursion = {
+    assertEquals(List(1, 1), fibonacciSeries.fibonacciRecursion(1))
+  }
+
+  @Test
+  def testForThirdPositionOfRegularRecursion = {
+    assertEquals(List(1, 1, 2, 3), fibonacciSeries.fibonacciRecursion(3))
+  }
+
+  @Test
+  def testForSixthPositionOfRegularRecursion = {
+    assertEquals(List(1, 1, 2, 3, 5, 8, 13), fibonacciSeries.fibonacciRecursion(6))
+  }
+
+  @Test
+  def testForNegativePositionOfTailRecursion = {
+    assertEquals(List(), fibonacciSeries.fibonacciTailRecursion(-1, List()))
+  }
+
+  @Test
+  def testForZerothPositionOfTailRecursion = {
+    assertEquals(List(1), fibonacciSeries.fibonacciTailRecursion(0, List()))
+  }
+
+  @Test
+  def testForFirstPositionOfTailRecursion = {
+    assertEquals(List(1, 1), fibonacciSeries.fibonacciTailRecursion(1, List()))
+  }
+
+  @Test
+  def testForThirdPositionOfTailRecursion = {
+    assertEquals(List(1, 1, 2, 3), fibonacciSeries.fibonacciTailRecursion(3, List()))
+  }
+
+  @Test
+  def testForSixthPositionOfTailRecursion = {
+    assertEquals(List(1, 1, 2, 3, 5, 8, 13), fibonacciSeries.fibonacciTailRecursion(6, List()))
+  }
+}

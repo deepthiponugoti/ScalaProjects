@@ -1,0 +1,14 @@
+def factors_for_a_number(number) 
+	(1..number).select { |n| (number % n).zero? }.to_a
+end
+
+def factors_for_all_numbers(numbers, union)
+	if numbers.empty?
+		union.uniq
+	else
+		first_element = numbers.shift
+		factors_for_all_numbers(numbers, union + factors_for_a_number(first_element))
+	end
+end
+
+puts factors_for_all_numbers([2, 6], [])

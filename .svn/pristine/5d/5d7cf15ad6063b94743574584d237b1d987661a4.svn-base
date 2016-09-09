@@ -1,0 +1,71 @@
+import PizzaDsl._
+import org.junit.Assert._
+import org.junit.Test
+
+import scala.collection.mutable.StringBuilder
+
+class PizzaDslTest{
+
+  @Test
+  def testCanary = {
+    assertTrue(true)
+  }
+
+  @Test
+  def testForCreatingPizzaWithZeroLayers = {
+    val pizzaObj = create a Pizza
+    assertEquals(new StringBuilder(""), pizzaObj getLayers)
+  }
+
+  @Test
+  def testForCreatingpizzaWithZeroLayers = {
+    val pizzaObj = create a pizza
+    assertEquals(new StringBuilder(""), pizzaObj getLayers)
+  }
+
+  @Test
+  def testForSpreadingSauceAtLayerOne = {
+    val expected = new StringBuilder("sauce ")
+    val pizzaObj = (create a pizza
+                      spread sauce)
+    assertEquals(expected, pizzaObj getLayers)
+  }
+
+  @Test
+  def testForSpreadingSauceAtLayerOneSpreadingCheeseAtLayerTwo = {
+    val expected = new StringBuilder("sauce cheese ")
+    val pizzaObj = (create a pizza
+                      spread sauce
+                      spread cheese)
+    assertEquals(expected, pizzaObj getLayers)
+  }
+
+  @Test
+  def testForSpreadingCheeseAtLayerOneAndAddingToppingsAtLayerTwo = {
+    val expected = new StringBuilder("cheese onions green_pepper black_olives jalapenos ")
+    val pizzaObj = (create a pizza
+                      spread cheese
+                      toppings (onions, green_pepper, black_olives, jalapenos))
+    assertEquals(expected, pizzaObj getLayers)
+  }
+
+  @Test
+  def testForBakingAPizza = {
+    val expected = new StringBuilder("sauce ")
+    val pizzaObj = (create a pizza
+                      spread sauce
+                      bake)
+    assertEquals(expected, pizzaObj getLayers)
+  }
+
+  @Test
+  def testForCreatingANewPizzaAndAndBakingIt = {
+    val expected = new StringBuilder("cheese sauce onions green_pepper black_olives jalapenos ")
+    val pizzaObj = (create a pizza
+                      spread cheese
+                      spread sauce
+                      toppings (onions, green_pepper, black_olives, jalapenos)
+                      bake)
+    assertEquals(expected, pizzaObj getLayers)
+  }
+}

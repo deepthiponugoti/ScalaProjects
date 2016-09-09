@@ -1,0 +1,49 @@
+//Give this JavaScript code:
+
+var data = { 
+  steps: 0,
+  walk: function(steps) {
+    this.steps += steps;
+  }  
+}
+
+var Person = function() {}
+Person.prototype = data;
+
+var tom = new Person();
+var jerry = new Person();
+
+console.log(tom.__proto__ === jerry.__proto__); // true
+
+console.log(tom.steps); // 0
+console.log(jerry.steps); // 0
+
+tom.walk(10);
+
+console.log(tom.steps); // 10
+console.log(jerry.steps); // 0
+
+//The first console.log shows that both the objects, tom and jerry,
+//share the prototype. The values for steps for each are the same as well,
+//initially. But, when the walk function sets the steps, it changed only for
+//the object tom and not for the object jerry. Why is that? Explain.
+
+In JavaScript, Inheritance is prototypal based means if our object does not have a property it goes to the prototype and searches for that property and gets it if it has.
+
+Whatever properties we assign using Car.prototype are not it's own. It is like getting from others and showing as its own.
+If we use this and try to change a value, it takes that property.
+
+Setting the values is always on us whereas getting is from the prototype if you don't have it. It never goes to the prototype to set the values.
+
+Hence in the above example, for the lines 
+
+console.log(tom.steps); // 0
+console.log(jerry.steps); // 0
+
+It will go to the prototype and search for the property called steps and gets it and saves it as its own property.
+
+Hence, the next call 
+
+tom.walk(10); will treat steps as it's own property and hence the value is modified and stored in tom's object without going back to the prototype to set the value.
+
+That is the reason, the value of jerry is not changed.

@@ -1,0 +1,27 @@
+import scala.language.dynamics
+
+class Pizza extends Dynamic{
+  private var layers = ""
+  def applyDynamic(methodName : String)(args : Any*) : Pizza = {
+    layers += args.mkString + " "
+    println(args.mkString)
+    this
+  }
+
+  def getLayers = layers
+}
+
+object Pizza{
+  val sauce = "sauce"
+  val cheese = "cheese"
+}
+
+object create{
+  def pizza : Pizza = {
+    new Pizza
+  }
+
+  def Pizza : Pizza = {
+    new Pizza
+  }
+}

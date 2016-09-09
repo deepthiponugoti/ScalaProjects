@@ -1,0 +1,30 @@
+package Assignment1;
+
+import java.util.stream.IntStream;
+
+public class PerfectNumber {
+
+    public boolean isFactor(int dividend, int number){
+        return dividend % number == 0;
+    }
+
+    public int sumOfFactors(int number){
+        int sumOfFactorsOfNum = 0;
+
+        for(int i = 1; i <= number; i++){
+            if( isFactor(number, i))
+                sumOfFactorsOfNum += i ;
+        }
+        return sumOfFactorsOfNum;
+    }
+
+    public boolean isPerfectNumber(int number){
+        return number > 1 && sumOfFactors(number) == 2 * number;
+    }
+
+    public boolean isPerfectNumberFunctionalStyle(int number){
+        return number > 1 && IntStream.rangeClosed(1, number)
+                                      .filter(i -> number % i == 0)
+                                      .sum() == 2 * number;
+    }
+}

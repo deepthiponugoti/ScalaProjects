@@ -1,0 +1,36 @@
+// import scala.collection.immutable.List
+// import scala.collection.immutable.Map
+
+class CuttingRod {
+		
+	def addOptimalSolutions(pattern: List[Int], listOfOptimalCuts: (Int, List[List[Int]])): (Int, List[List[Int]]) = {
+      (listOfOptimalCuts._1 , List(pattern) ::: listOfOptimalCuts._2)
+    }
+	
+	def totalProfitOfCuts(priceOfDifferentLength : Map[Int, Int], cuts : List[Int]): Int = {
+		return cuts.foldLeft(0){(sum, e) => sum + priceOfDifferentLength.getOrElse(e, 0)}
+	}
+
+	def maxProfitForGivenLength(priceOfDifferentLengthRods : Map[Int, Int], length : Int) : Int = {
+		length match {
+      case x if x <= 0 => 0
+      case _ => {
+        Stream.range(1, length).foldLeft(List(priceOfDifferentLengthRods.getOrElse(length, 0))) {
+        ((list, i) => list ::: List(maxProfitForGivenLength(priceOfDifferentLengthRods, i) + maxProfitForGivenLength(priceOfDifferentLengthRods, length-i)))}.max
+		}
+	}
+	}
+	
+	def getOptimalCuts(possibleCuts : List[List[Int]], priceOfDifferentLength : Map[Int, Int], length : Int): (Int, List[List[Int]]) = {
+		val maxProfit = maxProfitForGivenLength(priceOfDifferentLength, length)
+		var result : (Int, List[List[Int]]) = (maxProfit, Nil)
+		for(cut <- possibleCuts) 
+		{
+			if(totalProfitOfCuts(priceOfDifferentLength, cut) == maxProfit)
+				result = addOptimalSolutions(cut, result)
+		}
+		
+		return result
+	}
+}
+

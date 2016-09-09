@@ -1,0 +1,58 @@
+import Pizza._
+import org.junit.Assert._
+import org.junit.Test
+
+class PizzaDslTest{
+
+  @Test
+  def testCanary = {
+    assertTrue(true)
+  }
+
+  @Test
+  def testForCreatingPizzaWithZeroLayers = {
+    val pizzaObj = create.Pizza
+    assertEquals("", pizzaObj getLayers)
+  }
+
+  @Test
+  def testForCreatingpizzaWithZeroLayers = {
+    val pizzaObj = create.pizza
+    assertEquals("", pizzaObj getLayers)
+  }
+
+  @Test
+  def testForSpreadingSauceAtLayerOne = {
+    val expected = "sauce "
+    val pizzaObj = create.pizza spread sauce
+    assertEquals(expected, pizzaObj.getLayers)
+  }
+
+  @Test
+  def testForSpreadingSauceAtLayerOneSpreadingCheeseAtLayerTwo = {
+    val expected = "sauce cheese "
+    val pizzaObj = create.pizza spread sauce spread cheese
+    assertEquals(expected, pizzaObj.getLayers)
+  }
+
+  @Test
+  def testForSpreadingCheeseAtLayerOneAndAddingToppingsAtLayerTwo = {
+    val expected = "cheese onions green_pepper black_olives jalapenos "
+    val pizzaObj = create.pizza spread cheese toppings (onions, green_pepper, black_olives, jalapenos)
+    assertEquals(expected, pizzaObj.getLayers)
+  }
+
+  @Test
+  def testForBakingAPizza = {
+    val expected = "sauce "
+    val pizzaObj = (create.pizza spread sauce bake)
+    assertEquals(expected, pizzaObj.getLayers)
+  }
+
+  @Test
+  def testForCreatingANewPizzaAndAndBakingIt = {
+    val expected = "cheese sauce onions green_pepper black_olives jalapenos "
+    val pizzaObj = (create.pizza spread cheese spread sauce toppings (onions, green_pepper, black_olives, jalapenos) bake)
+    assertEquals(expected, pizzaObj.getLayers)
+  }
+}

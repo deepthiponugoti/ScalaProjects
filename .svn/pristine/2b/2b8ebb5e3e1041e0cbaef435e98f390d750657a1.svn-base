@@ -1,0 +1,14 @@
+class RodCutter
+
+	def getOptimalCuts(length , prices)
+		if length <= 0
+			[0, [[]]]
+		elsif(prices.has_key?(length))
+			[prices[length], [[length]]]
+		end
+	end
+	
+end
+
+
+

@@ -1,0 +1,37 @@
+import java.math.BigInteger
+
+import scala.annotation.tailrec
+
+class Factorial {
+
+  def factorial_Recursive_Recursive(number: Int) : BigInteger = {
+    if(number == 1)
+      BigInteger.ONE
+    else
+      new BigInteger(number.toString).multiply(factorial_Recursive_Recursive(number - 1))
+  }
+
+  @tailrec
+  final def factorial_Recursive_Iterative(factorial : BigInteger, number: Int) : BigInteger = {
+    if(number == 1)
+      factorial
+    else
+      factorial_Recursive_Iterative(factorial.multiply(new BigInteger(number.toString)), number - 1)
+  }
+
+  def factorialImmutabilty(number: Int) = {
+    val range = 1 to  number
+    range.foldLeft(1) {
+      (factorial , n) => factorial * n
+    }
+  }
+}
+
+object factorialObject {
+  def main(args: Array[String]) {
+    val factorial = new Factorial()
+    println(factorial.factorial_Recursive_Recursive(5))
+    println(factorial.factorial_Recursive_Iterative(BigInteger.ONE, 5))
+    println(factorial.factorialImmutabilty(4))
+  }
+}

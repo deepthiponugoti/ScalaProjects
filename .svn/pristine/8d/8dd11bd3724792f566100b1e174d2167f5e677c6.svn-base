@@ -1,0 +1,8 @@
+A recursion runs into stack overflow errors for very large values. On the other hand a tail call 
+optimized recursion does not. Why is that?
+
+Usually in the recursion calls the present call of the function waits until its next call value is available and stacks the present call. So, as a result all the function calls are stored in stack till it reaches the base case. When once the base case is evaluated, it returns the value, then all the function calls are evaluated accordingly one by one and final result is returned back. In this process as all the function calls are being saved to the stack frame leads to stack overflow error for large values.
+
+In tail calls instead of recursive call in the last expression, it rolls the call into a simple iteration instead of a jump. So, as a result the recursion changes to iteration.  Since the current recursive instance is done executing at that point, and is not saved to the stack frame.
+Specifically, creating a new stack frame on top of t he current, finished, frame is a waste. A compiler is said to implement TailRecursion if it recognizes this case and replaces the caller in place with the callee, so that instead of nesting the stack deeper, the current stack frame is reused. This is equivalent in effect to a "GoTo", and lets a programmer write recursive definitions without worrying about space inefficiency (from this cause) during execution. TailRecursion is then as efficient as iteration normally is.
+    

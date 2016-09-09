@@ -1,0 +1,67 @@
+[Venkat 10/25/15 08:20 AM CET]
+review: let's review the syntax
+
+See dsl.txt
+
+------------------------------------------------------------------------------
+[Venkat 10/24/15 13:30 PM CEST]
+review: let's make it fluent
+
+Notice the warnings when rake is run.
+
+dsl.txt: Remove the dot.
+
+------------------------------------------------------------------------------
+[Venkat 10/23/15 06:00 AM CEST]
+review: nice progress
+
+Refactor and then move to the next language.
+
+------------------------------------------------------------------------------
+[Venkat 10/22/15 06:14 AM CEST]
+review: nice progress
+
+Almost there. See one more suggestion in dsl.txt.
+
+------------------------------------------------------------------------------
+[Venkat 10/21/15 07:09 AM CEST]
+review: good progress
+
+See suggestions. Move forward.
+
+------------------------------------------------------------------------------
+[Venkat 10/20/15 05:36 AM CEST]
+review: rework the syntax
+
+dsl.txt: Too noisy with double quoted strings everywhere.
+We want to create a syntax the language will readily accept (syntax
+that is part of the language) and is fluent at the same time.
+
+We don't want to be reading files and parsing files. All we want is
+to exploit the fluency afforded by the language, push it to limits
+to make the code look less like code in the syntax we use.
+
+------------------------------------------------------------------------------
+[Venkat 10/19/15 05:08 AM CEST]
+review: revisit the syntax
+
+Looking at the dsl.txt, new is a smell, create would be so much better. Also,
+would Scala support the syntax given in the file or do we have to make some changes
+to the syntax to make it compatible with Scala?
+
+Once you decide on the syntax, start with the first test to process a pice of
+code like the first line alone. Then incrementally we can get to the following
+lines in the modified syntax.
+
+------------------------------------------------------------------------------
+[Venkat 10/18/15 04:04 AM CEST]
+review: let's get a grasp of fluency first
+
+We see new in the setup. Do we want to be using new?
+Jot down a sample DSL first in a file. Let's examine that and see if it
+is fluent enough and, at the same time, feasible to implement in the language.
+
+Once we have an idea what to create, we can then test drive it.
+
+------------------------------------------------------------------------------
+Scala

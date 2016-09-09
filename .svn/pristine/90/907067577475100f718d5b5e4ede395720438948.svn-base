@@ -1,0 +1,63 @@
+How does Clojure support infinite sequences?
+
+Clojure supports infinite sequence using the lazy - evaluation approach.  In this approach, the list is not fully computed until we actually we use it.
+
+A lazy-seq will invoke its body only when needed, that is, when seq is called directly or indirectly. lazy-seq will then cache the result for subsequent calls.
+
+The lazy-sequence postpones the computation until a demand is made, only after demand is made sequence is computed, take is used to accept the demand.
+
+In the below example, factorial is computed for infinte sequence. But when we are Specifying it to compute as lazy sequence, it is deferring the computation. We specify the demand using the "take" , we specify the demand of 10 elements over here.
+
+(defn fact 
+  ( []
+     (concat [1] (fact 1 2)))
+  ( [p n]
+     (let [prod (prod (* p n))])
+     (let [nextValue (+n 1)]
+     (lazy-seq 
+        (cons prod (fact prod nextValue)))))
+  )
+)
+
+(println (take 10 (fact)))
+
+As the fact example demonstrates, you should normally expose lazy sequences as a function that returns the sequence, not as a var that contains the sequence.
+
+The infinite sequence cache the already computed values and they are thread safe. 
+
+In clojure sequences are Immutable. Whenever we change a sequence, underlying sequence does not change but copying is done using powerful data structures. Sequences being immutable alot of sharing is done, when we are creating a new sequence.
+
+(def values[1 4 8 9 23])
+(println values)
+(println (drop 3))  -- another list is created here
+(println (partition 2 values)) 
+(println (interleave ["john" "jim" "jake"] [15 25 2]))
+
+
+Lists can be infinte in length. Printing them would fail. In clojure we can take a certain part of infinte list and handle it. To support this there are lazy sequences in Clojure.
+Lazy sequence is a list that is not fully known/computed until we actually use it.
+
+It is like a list that is very expensive to create and we would not like to to compute too much -but still alows user to consume as much as they want or need.
+
+Lazy sequence remember already compued elements as contradiction to normal iterator.
+
+
+
+(defn fact 
+  ( []
+     (concat [1] (fact 1 2)))
+  ( [p n]
+     (let [prod (prod (* p n))])
+     (let [nextValue (+n 1)]
+     (lazy-seq 
+        (cons prod (fact prod nextValue)))))
+  )
+)
+
+
+
+(println (take 10 (fact)))
+
+The factorial function generates infinite sequence.
+They are like normal lists but they are evaluated only when needed.
+They cache the already computed values and they are thread safe.

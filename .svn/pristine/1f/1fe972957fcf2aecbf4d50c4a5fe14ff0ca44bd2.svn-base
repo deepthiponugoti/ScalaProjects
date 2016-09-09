@@ -1,0 +1,74 @@
+Files you check in outside of specific homework or assignment directory will not be reviewed or graded for that homework/assignment.
+
+Check in and modify files as many times as you like. You will not be able to modify the files after the deadline.
+
+You will work as a pair, both of you are responsible for the completed work in all assignments and homework. 
+Each of you are expected to put in your reasonable share of effort into it.
+
+The deadlines are strict, there will be no extensions. Don't email any code to Venkat.
+
+Your last check in before the deadline will be graded. So, if you break code (in assignments) before the deadline, you will lose.
+
+Please feel free to ask for frequent reviews (see the readme.txt file in the reviews folder for details on how to ask for reviews).
+
+You can evolve the answers and solutions based on the reviews to your pair and to other pairs in the course.
+Only the latest checkin at the time of review will be looked at. Also the final check in will be the only one graded.
+
+Please read the academic honesty policy posted on the course mailing list.
+
+--------------------------------------------------------------------------------------------------------------
+Homework 1: Due 11:59PM September 4th
+
+What are the differences between statements and expressions. Given examples. What are the benefits and the consequences of using each one of them. 
+
+Feel free to read up, but do provide references to where you learn from. The description should be in your own words. If you find some really catchy phrases or quotes you'd like to use, do so, but put them in double quotes along with the name of who said (wrote) it.
+
+Share your own experiences, observations, things that may have intrigued you.
+
+Your answer goes here:
+
+Statements do not return any result. They simply perform an action. Statements are mostly executed for their side-effects. 
+
+Benefits:
+Statements are imperative tools, which helps to formalize the steps of an algorithm, and also are used by compiler to generate the object program.
+In the early days, when programming languages were first introduced, there was a need to split the program into several statements. This makes the processing of the program easy. But now, because of the many benefits of functional style of programming when compared to imperative style of programming, expressions are more preferred than statements.
+
+Consequences: 
+1) Statements may lead to mutability. Mutating data looks like an easy solution in building software but because of such mutability the software becomes complex, since it is hard to deal with it. Especially in concurrent applications dealing with mutability and locks becomes really complex.
+
+2)If there is mutability then we cannot share/reuse the variables because the values keep changing. This may lead to violation of DRY principle sometimes.
+
+2) Because of the side-effects of statements, the functional languages rarely use statements.
+
+3) Statements lead to imperative style of programming.
+
+example: (In Java) Assume there is an arraylist "value"
+
+	for(int i = 0; i < 10; i++){
+		sum += value.get(i);
+	}
+	
+The for loop doesn't return any value. It just executes the loop 10 times.
+
+Limitations: If we want to use a result from the statements, there is no result that can be used because statements return nothing. But in expressions, we can ignore/use the result of the expressions.
+
+Mutability of statements cannot provide referential transparency, which is essential for certain compiler optimizations to be valid. 
+
+It cannot support multi-threaded environment. As the data remains changed, mutable data cannot be shared between threads as it leads to synchronization problems. 
+
+Expressions return results. The value returned by an expression may be used in other expressions. Expression rarely have side-effects.
+
+example: The above example can be written as follows in functional style using Java 8
+int sum = value.stream()
+			   .mapToInt(i -> i)
+			   .sum();
+			   
+Here, the above expression returns the sum of all the elements of the list.
+
+Benefits: Favouring expressions over statements reduces mutability because the programmer is not responsible to tell what value should be changed. It is the expression that handles where to store those values.
+
+Consequences: Expressions lead to functional style of programming. Because expressions rarely have side-effects, functional style prefers expressions when compared to statements.
+
+Observations: From our experience, using expressions instead of statements when designing application, the code looks more concise. It reduces the effort to create unnecessary code. 
+
+Total [10]: 10

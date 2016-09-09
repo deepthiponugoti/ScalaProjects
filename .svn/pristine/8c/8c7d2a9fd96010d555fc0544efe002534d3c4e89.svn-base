@@ -1,0 +1,10 @@
+max = 100
+
+is an expression or a statement in Ruby? Explain.
+
+Everything in Ruby is an expression. An assignment sets the variable or attribute on the left side to the value on the right side. This returns the value as the result of this assignment expression. Hence, we can use this result of this assignment expression and perform other operations using it in Ruby.
+
+Example:
+value = (newValue = 2) * 3
+
+The result of the above expression is 6.

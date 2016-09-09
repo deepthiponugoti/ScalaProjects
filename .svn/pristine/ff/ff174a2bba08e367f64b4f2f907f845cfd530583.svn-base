@@ -1,0 +1,4 @@
+What is applicative order? Give a working example to illustrate this in a language of your choice.
+Discuss here, but put the code in a separate file with proper extension. Ensure the code works..
+
+If the operators and parameters are evaluated before procedure is evaluated then it is called applicative order. 

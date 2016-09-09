@@ -1,0 +1,34 @@
+class PizzaDsl{
+  private var layers = new StringBuilder("")
+
+  def spread(item : String) = { 
+    layers.append(item + " ")
+    this
+  }
+
+  def toppings(items : String*) = {
+    layers.append(items.mkString(" ") + " ")
+    this
+  }
+
+  def bake : PizzaDsl = {
+    this
+  }
+
+  def getLayers = layers
+}
+
+object PizzaDsl{
+  val sauce = "sauce"
+  val cheese = "cheese"
+  val onions = "onions"
+  val green_pepper = "green_pepper"
+  val black_olives = "black_olives"
+  val jalapenos = "jalapenos"
+  val Pizza = "Pizza"
+  val pizza = "pizza"
+}
+
+object create{
+  def a(name : String) : PizzaDsl = new PizzaDsl
+}

@@ -1,0 +1,31 @@
+import org.junit.Assert._
+import org.junit.Test
+
+class RodCutterTest{
+
+  val prices = Map(1 ->1, 2 -> 5, 3 -> 7, 4 -> 8)
+  val rodCutter = new RodCutter()
+
+	@Test
+	def testCanary = {
+		assertTrue(true)
+	}
+
+	@Test
+	def testgetOptimalCutsForZeroLength= {
+		val expected = Map("revenue" -> 0, "cuts" -> List(List()))
+		assertEquals(expected, rodCutter.getOptimalCuts(0, prices))
+	}
+	
+	@Test
+	def testgetOptimalCutsForOneLength= {
+		val expected = Map("revenue" -> 1, "cuts" -> List(List(1)))
+		assertEquals(expected, rodCutter.getOptimalCuts(1, prices))
+	}
+	
+	@Test
+	def testgetOptimalCutsForOneLengthIfPriceIsNotPresent= {
+		val expected = Map("revenue" -> 0, "cuts" -> List(List()))
+		assertEquals(expected, rodCutter.getOptimalCuts(7, prices))
+	}
+}

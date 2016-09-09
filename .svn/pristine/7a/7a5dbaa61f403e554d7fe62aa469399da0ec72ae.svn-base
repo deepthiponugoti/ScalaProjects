@@ -1,0 +1,27 @@
+What's the difference between a function value/lambdas and a closure? Give examples of both.
+
+The main difference between a function value and a closure is that closure contains variables that are bounded within the scope of the caller of the function where it is defined i.e., implementing lexically scoped name binding in languages with first class functions ,
+where as a function value does not have any such kind of variables with bounds.
+
+Examples:
+
+Function Value :
+
+consider the following code in ruby, where we are finding another list that contains doubled the values of the given input
+ 
+input = [1, 2, 3]
+inputDoubled = input . map { |e| e - 1 }
+
+Here the block { |e| e -1 } is called a function value as there are no variables that are bound to the scope of the caller of the block where it is defined.
+
+Closure :
+
+
+consider the following code in ruby, where we are finding the sum of elements in a given list 
+
+inputArray = [1, 2, 3, 4]
+total = 0
+inputArray. each { |e| total += e}
+
+In the above example, { |e| total += e} is a closure as total variable  is bound to scope of the caller where it is defined. 
+

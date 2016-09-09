@@ -1,0 +1,55 @@
+require_relative "../src/Pizza_dsl"
+require 'test/unit'
+
+class PizzaDslTest < Test::Unit::TestCase
+
+  def test_Canary
+    assert_true(true)
+  end
+
+  def test_for_creating_pizza
+    pizzaObj = create pizza
+    assert_equal("", pizzaObj.layers)   
+  end
+
+  def test_for_creating_pizza_spreading_sauce
+     pizzaObj = create pizza do
+                  spread sauce
+                end
+    assert_equal("sauce ", pizzaObj.layers)
+  end
+
+  def test_for_creating_pizza_spreading_sauce_spreading_cheese
+    pizzaObj = create pizza do
+                 spread sauce
+                 spread cheese
+               end
+    assert_equal("sauce cheese ", pizzaObj.layers)
+  end
+
+  def test_for_creating_pizza_adding_toppings
+    pizzaObj = create pizza do
+                 toppings onions, jalapenos
+               end
+    assert_equal("onions jalapenos ", pizzaObj.layers)
+  end
+
+  def test_for_creating_pizza_spreading_sauce_adding_toppings_spreading_cheese
+    pizzaObj = create pizza do
+                 spread sauce
+                 toppings black_olive, onions, jalapenos
+                 spread cheese
+               end
+    assert_equal("sauce black_olive onions jalapenos cheese ", pizzaObj.layers)
+  end
+  
+  def test_for_creating_pizza_spreading_sauce_adding_toppings_baking_it
+    pizzaObj = create pizza do
+                 spread sauce
+                 toppings black_olive, green_pepper
+                 bake
+               end
+    assert_equal("sauce black_olive green_pepper ", pizzaObj.layers)
+  end
+
+end

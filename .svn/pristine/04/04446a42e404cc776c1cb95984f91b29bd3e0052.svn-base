@@ -1,0 +1,15 @@
+-module(fibonacci_series).
+-export([fibonacciSeriesRecursion/1, fibonacciTailRecursion/1]).
+
+fibonacciSeriesRecursion(0) -> [1];
+fibonacciSeriesRecursion(1) -> [1, 1];
+fibonacciSeriesRecursion(N) when N > 1 ->
+  ListOfNumbers = fibonacciSeriesRecursion(N-1),
+  ListOfNumbers ++ [lists:last(ListOfNumbers) + lists:last(lists:droplast(ListOfNumbers))].
+
+fibonacciTailRecursion(0) -> [1];
+fibonacciTailRecursion(N) -> fibonacciTailRecursion(N - 1, [1, 1]).
+
+fibonacciTailRecursion(0, Series) -> Series;
+fibonacciTailRecursion(N, Series) ->
+  fibonacciTailRecursion(N - 1, Series ++ [lists:last(Series) + lists:last(lists:droplast(Series))]).

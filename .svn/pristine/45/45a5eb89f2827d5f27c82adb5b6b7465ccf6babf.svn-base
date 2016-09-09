@@ -1,0 +1,57 @@
+[Venkat 09/28/15 06:19 AM EDT]
+review: good progress
+
+scala - done
+
+Erlang: reduce work done in last line.
+
+------------------------------------------------------------------------------
+[Venkat 09/27/15 09:04 AM EDT]
+review: reduce more
+
+Too much code, reduce. See suggestions in code.
+
+------------------------------------------------------------------------------
+[Venkat 09/26/15 07:44 AM EDT]
+review: reduce further
+
+See suggestion in code.
+
+------------------------------------------------------------------------------
+[Venkat 09/25/15 09:24 AM EDT]
+review: reduce code
+
+Remove the helper function. We only need one function for this version.
+
+------------------------------------------------------------------------------
+[Venkat 09/24/15 07:47 AM MDT]
+review: favor immutability
+
+var - avoid mutability.
+
+------------------------------------------------------------------------------
+[Venkat 09/23/15 06:52 AM CDT]
+review: honor immutability as much as possible
+
+fibonacciRecursion: good work on this.
+
+fibonacciTailRecursion: Nice use of annotation here.
+
+ListBuffer: use List instead of ListBuffer, honor immutability.
+
+------------------------------------------------------------------------------
+[Venkat 09/22/15 07:31 AM MDT]
+review: reduce
+
+see suggestion in code. Move forward
+
+------------------------------------------------------------------------------
+[Venkat 09/21/15 05:48 AM MDT]
+review: good start, refactor
+
+Nice tests.
+
+Reduce code. Use match and case (Pattern matching) instead of if and else.
+
+------------------------------------------------------------------------------
+scala - done

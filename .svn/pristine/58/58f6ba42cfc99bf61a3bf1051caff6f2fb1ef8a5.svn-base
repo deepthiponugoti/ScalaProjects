@@ -1,0 +1,14 @@
+class Pizza{
+  var mapOfLayers : Map[Int, List[String]] = Map()
+  var layer = 0
+
+  def toppings(listOfToppings : String*) = {
+    mapOfLayers += (layer -> listOfToppings.toList)
+    layer = layer + 1
+  }
+
+  def spread(item : String) = {
+    mapOfLayers += (layer -> List(item))
+    layer = layer + 1
+  }
+}

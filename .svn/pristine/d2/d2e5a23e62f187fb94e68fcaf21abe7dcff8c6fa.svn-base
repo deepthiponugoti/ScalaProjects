@@ -1,0 +1,18 @@
+def create(item)
+	yield
+end
+
+def pizza
+	$layers = String.new
+end
+
+def spread(item)
+end
+
+def sauce 
+	$layers += "sauce "
+end
+
+def cheese
+	$layers += "cheese "
+end

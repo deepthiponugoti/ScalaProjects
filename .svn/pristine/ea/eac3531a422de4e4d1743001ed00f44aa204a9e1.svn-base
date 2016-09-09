@@ -1,0 +1,7 @@
+import scala.collection.immutable.List
+
+class CuttingRod {
+  def totalCostOfPattern(cost: List[Int], pattern: List[Int]): Int = {
+		return pattern.foldLeft(0){(sum, e) => sum + cost(e-1)}
+	}
+}

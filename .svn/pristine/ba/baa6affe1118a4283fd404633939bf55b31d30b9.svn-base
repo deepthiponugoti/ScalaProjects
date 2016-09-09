@@ -1,0 +1,44 @@
+What is metaprogramming? Give examples in a language of your choice and explain their benefits.
+
+You write code which in turn writes code for you, this is what meta programming can be thought of.
+It is one level of indirection. There are couple of ways we can do,in which code generation is one, where we write a piece of code, that would reach something spit out other pieces of code that can compile, or just run. Other way is Code Synthesis where we don't have code, it comes into life in memory, gets used and vanishes. Example of code synthesis is rails where code does not exist in physical memory. In meta programming the program which we write is designed to read,analyse other programs and also modify itself if necessary during the runtime. In some cases, this allows programmers to minimize the number of lines of code to express a solution , or it gives programs greater flexibility to efficiently handle new situations without recompilation. It is extremely powerful and helps us to insert behaviour dynamically as stated above. The language which provides the ability to meta program is called meta language and the program which is manipulated is called object language.
+Examples of Meta Languages are Groovy, Ruby etc., whereas examples of Object languages are DSL, XML etc.
+
+For example,
+
+str = "hello"
+println str
+println str.class
+
+String.metaClass.shout = {->
+  delegate.toUpperCase()
+}
+println str.shout() 
+
+this is example of code injection. Here we are adding the method to the class. Similarly we can add to the object i.e., instance level addition. 
+We can also add methods dynamically as below,
+
+class Person{
+  def work(){
+    println "working..."
+  }
+  def methodMissing(String name,args){
+ //Will be invoked when the called method is not present, instead of failing code. So, you can decide the functionality of the method at the run time i.e., //dnamically
+   
+    println "You called method missing.."+name	
+  }
+}
+
+joe = new Person()
+joe.work()
+joe.sing() 
+
+Benefits:
+
+Code generation is used when you have a large application where many of the functions include a lot of boilerplate code, you can create a mini-language that will do the boilerplate code for you and allow you to code only the important parts. Now, if you can, it's best to abstract out the boilerplate portions into a function. But often the boilerplate code isn't so pretty. Maybe there's a list of variables to be declared in every instance, maybe you need to register error handlers, or maybe there are several pieces of the boilerplate that have to have code inserted in certain circumstances. All of these make a simple function call impossible. In such cases, it is often a good idea to create a mini-language that allows you to work with your boilerplate code in an easier fashion. This mini-language will then be converted into your regular source code language before compiling. A lot of programming languages make you write really verbose statements to do really simple things. Code-generating programs allow you to abbreviate such statements and save a lot of typing, which also prevents a lot of mistakes because there is less chance of mistyping.
+
+It can also be used in the Programs that need to pre-generate data tables, Programs which uses the techniques that are overly verbose in the language you are writing them in.
+
+
+
+

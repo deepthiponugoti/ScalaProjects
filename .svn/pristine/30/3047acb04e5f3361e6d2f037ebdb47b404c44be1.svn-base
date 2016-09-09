@@ -1,0 +1,40 @@
+class Pizza{
+  private var layers = ""
+
+  def spread(item : String) : Pizza = {
+    layers += item + " "
+    println(item)
+    this
+  }
+
+  def toppings(items : String*) : Pizza = {
+    layers += items.mkString(" ") + " "
+    println(items.mkString(" "))
+    this
+  }
+
+  def bake : Pizza = {
+    this
+  }
+
+  def getLayers = layers
+}
+
+object Pizza{
+  val sauce = "sauce"
+  val cheese = "cheese"
+  val onions = "onions"
+  val green_pepper = "green_pepper"
+  val black_olives = "black_olives"
+  val jalapenos = "jalapenos"
+}
+
+object create{
+  def pizza : Pizza = {
+    new Pizza
+  }
+
+  def Pizza : Pizza = {
+    new Pizza
+  }
+}

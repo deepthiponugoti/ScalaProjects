@@ -1,0 +1,46 @@
+Homework 4: Due 11:59PM December 04
+
+**There will no reviews for this Homework**
+
+Feel free to give answers collectively, and also if you want to, you can call 
+out something specific to yourself different from your pair.
+
+(a) What languages did you use in this course? 
+
+Java, Scala, Ruby, Erlang
+
+(b) Which one of those you used for the first time?
+
+Scala, Ruby, Erlang
+
+(c) What are your impressions about all the languages that you used (compare
+and contrast in your view)?
+
+Scala:
+Interesting fact about scala is, it is a statically typed and also a hybrid functional language. Only a few other languages such as Haskell, F# are both statically typed and supports functional programming. Scala has very strong type system than Java. But, the compilation of scala is very slow. 
+
+The developer need not bother about assigning a type to a variable, thanks to the type inference this language possess. It has very low ceremony, which helps us write clean, concise and short code.  
+
+Its event based concurrency model simplifies concurrent programming by eliminating the need to enforce synchronization explicitly and using various locking mechanisms. To sum up in a few words, with SCALA, just by writing very few line of code we can solve problems efficiently. 
+
+Ruby:
+In Ruby, we learnt about its dynamic nature and appreciate its support for powerful meta programming. It has type inference.
+
+Erlang:
+Erlang honors complete immutability. It supports tail call optimization and multiple entry points to a function.
+
+Java:
+Lambdas in Java8 are awesome yet powerful. They make code very concise yet run faster. With functional programming in Java8, it proved it is not far behind from other newly developed languages in JVM.
+					
+The infinite sequences in Clojure and prototype-based model of IO are quite interesting. We learnt about multi methods, optional typing, powerful meta-programming capabilities offered by Groovy. F#'s ability to intermix with other languages on Common Language Runtime was interesting note. F# also got very good type inference. This is the only language which supports functional programming in .Net platform.
+
+(d) What did you learn mostly in this course (I'm interested in hearing your views, things you realized, things you found interesting, things you did not like so much about any particular language, etc.)?
+
+Functional programming is something which is very interesting. The power offered by functional programs without any side effects is tremendous. Further, adopting immutability was initially difficult. However, gradually we started liking it as we understood how efficient the immutable code is. As we did our assignments, we learnt how immutability helps us write efficient code, without having to worry about the changing values of variables. 
+
+Another important thing we learnt in the course is dealing with concurrency. All we knew till then was the regular synchronization and locking mechanisms. Learning about the actor based concurrency model was quite interesting. 
+ 
+Before we enter the real world, this knowledge proves valuable as the next time we encounter a problem, we simply don’t start writing the code either in JAVA or C#. We learnt to analyze its nature and then choose a language, having learnt various languages and their features which support solving different problems. We are open to learn new languages and that too with great ease. Instead of writing lengthy code, we now chose to write elegant code. We learnt the importance of following good coding conventions, refactoring the code, removing the noise and avoid writing unnecessary code.  
+  
+The course helped us understand constructs supported by various programming languages. It is true that unless we start writing the code, we do not understand the beauty of a language. Also, unless we learn more languages, we cannot appreciate the constructs supported by one language which is not supported by others. 
+

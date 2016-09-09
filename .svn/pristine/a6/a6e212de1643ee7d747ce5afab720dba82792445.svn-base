@@ -1,0 +1,32 @@
+require_relative "../src/Pizza_dsl"
+require 'test/unit'
+
+class PizzaDslTest < Test::Unit::TestCase
+
+  def test_Canary
+    assert_true(true)
+  end
+
+  def test_for_creating_pizza
+#Venkat: Remove do and end from this test
+    create pizza do
+    end
+    assert_equal("", $layers) #Venkat: global variables $ are bad idea, don't use them. Put the context in a pizza object. pizza = create pizza
+  end
+
+  def test_for_creating_pizza_spreading_sauce
+    create pizza do
+      spread sauce
+    end
+    assert_equal("sauce ", $layers)
+  end
+
+  def test_for_creating_pizza_spreading_sauce_spreading_cheese
+    create pizza do
+      spread sauce
+      spread cheese
+    end
+    assert_equal("sauce cheese ", $layers)
+  end
+  
+end

@@ -1,0 +1,25 @@
+object RodCutter {
+
+  def getOptimalCutsForSplit(split: Int, length: Int, prices: Map[Int, Int]): (Int, List[List[Int]])= {
+  val tupleForSplit = getOptimalCuts(split, prices)
+  val tupleForLengthMinusSplit = getOptimalCuts(length - split, prices)
+  val permutationOfBothCuts = for (x <- tupleForSplit._2; y <- tupleForLengthMinusSplit._2) yield (x:::y)
+
+  (tupleForSplit._1 + tupleForLengthMinusSplit._1, permutationOfBothCuts)
+}
+
+  def getOptimalCuts(length: Int, prices: Map[Int, Int]) : (Int, List[List[Int]]) = {
+    length match {
+      case x if x <= 0 => (0, List(List()))
+      case _ =>
+        val listOfCuts = Stream.range(1, length).map(i => getOptimalCutsForSplit(i, length, prices)).toList
+        val listOfAllCuts = listOfCuts ::: List((prices.getOrElse(length, 0), List(List(length))))
+        val maxProfit = listOfAllCuts.maxBy(_._1)._1
+        val listWithMaxRevenue = listOfAllCuts.filter(i => i._1 == maxProfit)
+        val combinedListWithMaxRevenue = listWithMaxRevenue.foldLeft[List[List[Int]]](List()){
+          (list, i) => list ::: i._2
+        }
+        (maxProfit, combinedListWithMaxRevenue)
+		}
+	}
+}

@@ -1,0 +1,26 @@
+What are persistent data structures. Give examples. What benefit do they provide over regular data structures? Under what context would you use them?
+
+Persistent data structures preserves the previous version of data structure when they are modified, yield a new updated version, promoting complete immutability, and hence provide nice performance. These are very common in purely functional languages. 
+
+While creating a new list, these languages add the new element at the begining to the list and share the already exisiting list. 
+The time complexity for adding, deleting an element is a constant time.
+
+Persistent lists in scala:
+val num = List(1, 2, 3, 4)
+val num1 = 12 :: nums
+print(num)
+print(num1)
+
+When we add 12 to the list num, we get a list num1, which contains(12, 1, 2, 3, 4).  What internally happens here is a new list num1 is created by placing 12 at the head of num and the head points to num1. So the cost of adding, deleting from the list is constant. Here num, num1 share the data.
+
+LISP is built around this List Structure. This operation of adding a new element is similar performing operations on a stack.
+
+When adding an element in the middle of the element of the list efficient data strucures like tries are used, which has 32 childrenfor each node. Here shallow copying is done to while adding an element. This allows to perform operations in constant time.
+
+
+Benefits:
+
+ 1. Because of it immutability, pure functional nature it promotes concurrent programming.
+ 2. They can share data which reduces memory usage in some cases. 
+
+Persistent data structures are used while building concurrent applications, since they help in writing immutable code.

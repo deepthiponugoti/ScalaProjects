@@ -1,0 +1,5 @@
+Homework 2: Due 11:59PM October 16
+
+What is referential transparency? Discuss. What are the benefits. Give examples.
+
+Referential transparency usually means that an expression always evaluates to same result in any context, i.e., it does not have any side effects. So, we can do sub computations, reorder sub computations which still obtains the same result. So, this benefits in common sub-expression elimination, lazy evaluation or parallellization.

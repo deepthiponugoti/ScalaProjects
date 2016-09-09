@@ -1,0 +1,48 @@
+Assignment 1: Due 11:59PM September 18th
+
+For this assignment we'll use two different languages. One has to be a statically typed language and the other has to be a dynamically typed language.
+
+Create files using proper extensions. Also create either a build file or a sh file that will compile (if necessary) and run your code to display the output or show test results automatically.
+
+If you need help with any of the steps, please ask. You do not have to fight with tools or code for a long time. The purpose of this course is to learn. If you're stuck, then ask for help and it will be given. Of course if you start early, you will be able to make much better progress than if you start late.
+
+In each of the languages, create two implementations for a function that will tell whether a number, given as argument, is a perfect number or not.
+
+A perfect number is a number greater than 1 whose factors total to twice the number. For example, the factors of 6 are 1, 2, 3, and 6. The total of these values is 12 which is twice the given number 6.
+
+The first implementation, in each language, should be in imperative style. The second implementation, in each language, should be in functional style.
+
+Suggestion: Start with one language. Write the code in that languages, evolve it using reviews. Once you've completed code in one language (and gotten a satisfactory review), then create in another language.
+
+After completing the coding (and only after that), answer the following questions:
+
+1. Discuss some of the things you have learned from working on this assignment.
+
+We have learnt how to code in ruby. We have learnt how using TDD makes us better programmers. We have learnt the discipline of coding. We have also learnt that it is not how much code we write, it is how much expressive, concise and readable our code is. We have also learnt how to convert the imperative style of coding to functional style of coding.
+
+2. Were there any thing that surprised you or things that you did not expect.
+
+We did not think that there is lot of difference in number of lines of code in imperative style when compared to functional style. It really surprised us seeing the code in imperative style and functional style because functional style is more concise and readable.
+
+3. Given this experience, draw a comparison between the imperative style and the functional style.
+
+We have observed that coding in imperative style needs more lines of code to be written by the programmer and it involves mutation of variables. 
+
+For example, In our program to find the perfect number in imperative style, we wrote three functions that involved mutation of variables and uses garbage variables. However, functional style involved creation of only single function which is more concise, expressive, uses no garbage variables and has no explicit mutation.
+
+In imperative style, we need to tell what to do and how to do to the program whereas in functional style, we only need to tell what to do and not how to do to the program.
+
+4. Given this experience, draw a comparison between static typing and dynamic typing.
+
+In this assignment, if the type information is not verified at compile time for the function isPerfectNumber i.e, if the language is dynamically typed, then if the type of the input number is bymistakenly given other datatype than integer, it would produce results that are nonsensical.
+
+But for statically typed languages, the compiler takes care of this issue.
+
+Total[100]: 100
+Build and tests [10]:
+Imperative Language 1 [20]:
+Functional Language 1 [20]:
+Imperative Language 2 [20]:
+Functional Language 2 [20]:
+Answers for questions in assign1.txt [10]:
+

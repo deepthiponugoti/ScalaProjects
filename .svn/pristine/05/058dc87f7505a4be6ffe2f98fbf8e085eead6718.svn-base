@@ -1,0 +1,38 @@
+object RodCutter {
+
+  def getOptimalCutsForSplit(split: Int, length: Int, prices: Map[Int, Int]): (Int, List[List[Int]])= {
+    val resultForFirstSplit = getOptimalCuts(split, prices)
+    val resultForSecondSplit = getOptimalCuts(length - split, prices)
+    val revenue = resultForFirstSplit._1 + resultForSecondSplit._1
+    val permutationOfBothCuts = 
+      for (cutFromTheTupleOfSplit <- resultForFirstSplit._2; cutFromTheTupleOfLengthMinusSplit <- resultForSecondSplit._2) yield 
+        (cutFromTheTupleOfSplit ::: cutFromTheTupleOfLengthMinusSplit)
+
+    (revenue, permutationOfBothCuts)
+}
+
+//Venkat: need to let go of words like Tuples, focus on data instead of types. Max of what? maxOfBooks, maxOfStocks, etc.
+  def maxOfTwoTuples(tuple1 : (Int, List[List[Int]]), tuple2 : (Int, List[List[Int]])): (Int, List[List[Int]]) = {
+//Venkat: tuple1 is not a good name, what data does this parameter represent, books, stock, etc.
+    tuple1._1 match {
+      case _ if tuple1._1 > tuple2._1 => tuple1
+      case _ if tuple1._1 == tuple2._1 => (tuple1._1, tuple1._2 ::: tuple2._2)
+      case _ => tuple2
+    }
+  }
+
+  def getOptimalCuts(length: Int, prices: Map[Int, Int]) : (Int, List[List[Int]]) = {
+    length match {
+      case _ if length <= 0 => (0, List(List()))
+      case _ =>
+      //Venkat: Replace the code below with only one call to foldLeft
+        val listOfCuts = Stream.range(1, length).map(i => getOptimalCutsForSplit(i, length, prices)).toList
+        val listOfAllCuts = listOfCuts ::: List((prices.getOrElse(length, 0), List(List(length))))
+        val combinedListWithMaxRevenue = listOfAllCuts.foldLeft[(Int, List[List[Int]])](0, List(List())){
+          (list, i) => maxOfTwoTuples(list, i)
+        }
+
+        combinedListWithMaxRevenue
+		}
+	}
+}

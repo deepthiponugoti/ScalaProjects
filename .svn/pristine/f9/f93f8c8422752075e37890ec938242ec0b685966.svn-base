@@ -1,0 +1,28 @@
+We discussed C#, Clojure, Erlang, F#, Groovy, Haskell, Java, Ruby, Scala, and JavaScript in this course. What are some of the ways in which you would classify these languages (there is more than one way). Explain each classification and group these languages appropriately in each classification.
+
+One way to classify the above given languages is according to the style of programming:
+Functional Languages: Clojure, Erlang, F#.  
+Imperative Languages: C#, Java. 
+Groovy, JavaScript, Scala and Ruby support both imperative and functional style of programming.
+
+Functional programming is very different from imperative programming. Functional programming avoids side effects, which are used in imperative programming to implement state and I/O. Pure functional programming completely prevents side-effects and provides referential transparency, which makes it easier to verify, optimize, and parallelize programs. Higher-order functions are rarely used in older imperative programming. Functional languages use high-order functions. Functional languages enforce immutability. 
+
+Second way of classification:
+
+Statically Typed: Scala, Java, C#, F#
+Dynamically Typed: Erlang, Groovy, Ruby, JavaScript, Clojure  
+
+Dynamic Typing: the property of a language where type checks are performed mostly at run time. This implies that dynamic typed languages do not 
+require the explicit declaration of the variables before they’re used. A language is statically typed if the type of a variable is known at compile time. 
+Static type-checking is the process of verifying the type safety of a program based on analysis of a program's text (source code). If a program passes 
+a static type-checker, then the program is guaranteed to satisfy some set of type-safety properties for all possible inputs. 
+
+Third way of classification:
+
+Strongly Typed: Scala, Erlang, Groovy, Ruby, Java, C#, F#, Clojure
+Weakly Typed: Java Script
+
+Programming languages in which variables have specific data types are strong typed. This implies that in strong typed languages, variables
+are necessarily bound to a particular data type. As opposed to strong typed languages, weak typed languages are those in which variables are not
+of a specific data type. It means that variables are not "bound" to a specific data type. In a weakly typed language, the type of a value depends
+on how it is used. In a strongly typed language, a value has a type and that type cannot change. What you can do to a value depends on the type of the value.

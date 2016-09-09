@@ -1,0 +1,25 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class FibonacciSeries {
+
+    private Map<Integer, Integer> fibonacciMemoizedMap = new HashMap<>();;
+
+    public FibonacciSeries(){
+        fibonacciMemoizedMap.put(0, 1);
+        fibonacciMemoizedMap.put(1, 1);
+    }
+
+    public int getValueMemoized(int position) {
+
+        return fibonacciMemoizedMap.computeIfAbsent(position,
+                thePosition -> getValueMemoized(thePosition - 1) + getValueMemoized(thePosition - 2));
+    }
+
+    public static void main(String[] args) {
+        FibonacciSeries fibonacciSeries = new FibonacciSeries();
+        int value = fibonacciSeries.getValueMemoized(400);
+        System.out.println(value);
+    }
+}
+

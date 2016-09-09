@@ -1,0 +1,32 @@
+class Pizza
+
+	attr_accessor :layers
+
+	def initialize(theLayers)
+		@layers = theLayers
+	end
+
+	def spread(item)
+		@layers += item + " "
+	end
+
+	def toppings(*args)
+		@layers += args.join(" ") + " "
+	end
+
+	def method_missing(name, *args, &block)
+		name.to_s
+	end
+
+	def bake
+	end
+end
+
+def create(item, &block)
+	pizzaObj = Pizza.new(String.new)
+	pizzaObj.instance_eval &block if block_given?
+	pizzaObj
+end
+
+def pizza
+end

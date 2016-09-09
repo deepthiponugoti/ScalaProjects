@@ -1,0 +1,68 @@
+[Venkat 09/03/15 11:53 AM CEST]
+review: consequences
+
+More consequences, thing we can't do because of such mutability...
+
+------------------------------------------------------------------------------
+[Venkat 09/02/15 05:02 AM PDT]
+review: consequence of that?
+
+What is the consequence of that mutability, so what? Complete that topic by
+telling why mutability here may not be a good thing, we we lose, what is harder,...
+
+------------------------------------------------------------------------------
+[Venkat 09/01/15 04:49 AM PDT]
+review: mention some of the limitations that come of the consequences
+
+1) continue with this consequence, what are the limitations that come out of this?
+
+------------------------------------------------------------------------------
+[Venkat 08/31/15 05:16 AM PDT]
+review: Avoid generalization from arbitrary examples
+
+Fix this please, the benefits is making a wrong claim and using a random
+example to justify this. This is incorrect argument, does not hold.
+1 + 2 returns 3. This is an expression what part of it is hard to understand?
+That is a counter example to the claim that statements are easier to understand. Neither statement nor expression are arbitrarily easier to 
+understand, neither claim would hold true.
+
+check spelling.
+
+------------------------------------------------------------------------------
+[Venkat 08/30/15 03:51 AM CDT]
+review: use extra care generalizing arguments
+
+check spelling
+
+First Benefits paragraph takes one example and generalizes it. Let's try this.
+"All animals wag their tails in joy. For example, my neighbors dog wags."
+
+"mutability of the code" - either "mutability" or "mutability of variables"
+
+Observation 3 is pretty good.
+
+doesnot -> doesn't
+
+Last consequences section: 1 and 2 say the same thing, remove one of them.
+
+------------------------------------------------------------------------------
+[Venkat 08/29/15 05:06 AM CDT]
+review: Revisit arguments
+
+First paragraph, these different types are not universally statements across all languages.
+
+Second paragraph assumed all languages use semicolons, which is not true.
+
+The easier to understand argument takes one example and generalizes that. We have to be
+careful in arguments not to make such generalizations.
+
+If expressions are statements, then they should share all the benefits and consequences of
+them too?
+
+Does int value = 1; actually return a value, can we write, for example println(int value = 1);
+
+What does it mean "It is the expression that handles that"?
+
+Consequences?
+
+------------------------------------------------------------------------------

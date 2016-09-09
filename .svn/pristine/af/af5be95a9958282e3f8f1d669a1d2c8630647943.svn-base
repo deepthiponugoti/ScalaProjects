@@ -1,0 +1,6 @@
+create $pizza #Venkat: Remove $.
+  spread $sauce #how does Ruby know that spread is part of the pizza being created? May be we need to change previous line to created pizza do
+  spread $cheese
+  toppings $onions, $jalapenos, $green_pepper
+  spread $cheese
+  bake

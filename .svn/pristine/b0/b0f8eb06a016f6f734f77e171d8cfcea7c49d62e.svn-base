@@ -1,0 +1,22 @@
+class PizzaDsl
+  @@layers = String.new
+  
+  def spread(item)
+	@@layers += item + " "
+	self
+  end
+  
+  def getLayers 
+	@@layers
+  end
+end
+
+def create
+	 def pizza
+	 	PizzaDsl.new
+	 end		
+
+	 def Pizza
+	 	PizzaDsl.new
+	 end
+end

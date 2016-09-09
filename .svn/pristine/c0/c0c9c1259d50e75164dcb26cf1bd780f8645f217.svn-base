@@ -1,0 +1,13 @@
+class NormalOrder {
+  def fibonacciImmutabilty(position: Int) = {
+    lazy val listOfNumbers: Stream[Int] = 1 #:: listOfNumbers.scanLeft(1)(_ + _)
+    listOfNumbers.take(position + 1).toList
+  }
+}
+
+object fibonacciObject {
+  def main(args: Array[String]) {
+    val fibonacci = new NormalOrder()
+    println(fibonacci.fibonacciImmutabilty(5))
+  }
+}

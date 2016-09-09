@@ -1,0 +1,38 @@
+import Pizza._
+import org.junit.Assert._
+import org.junit.Test
+
+class PizzaDslTest{
+
+  @Test
+  def testCanary = {
+    assertTrue(true)
+  }
+
+  @Test
+  def testForCreatingPizza = {
+    val pizzaObj = create.Pizza
+    assertTrue(pizzaObj.isInstanceOf[Pizza])
+//Venkat: assert value instead of type here.
+  }
+
+  @Test
+  def testForCreatingpizza = {
+    val pizzaObj = create.pizza
+    assertTrue(pizzaObj.isInstanceOf[Pizza])
+  }
+
+  @Test
+  def testForSpreadingSauceAtLayerOne = {
+    var expected = "sauce "
+    val pizzaObj = create.pizza spread sauce
+    assertEquals(expected, pizzaObj.getLayers)
+  }
+
+  @Test
+  def testForSpreadingSauceAtLayerOneSpreadingCheeseAtLayerTwo = {
+    var expected = "sauce cheese "
+    val pizzaObj = create.pizza spread sauce spread cheese
+    assertEquals(expected, pizzaObj.getLayers)
+  }
+}

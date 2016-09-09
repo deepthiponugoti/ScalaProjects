@@ -1,0 +1,25 @@
+require_relative "../src/Pizza_dsl"
+require 'test/unit'
+
+class PizzaDslTest < Test::Unit::TestCase
+
+  def test_Canary
+    assert_true(true)
+  end
+
+  def test_create_pizza
+    pizza_obj = create.pizza
+    assert_equal("", pizza_obj.getLayers)
+  end
+
+  def test_create_Pizza
+    pizza_obj = create.Pizza
+    assert_equal("", pizza_obj.getLayers)
+  end
+
+  def test_for_creating_pizza_spreading_sauce
+    sauce = "sauce"
+    pizza_obj = create.pizza.spread sauce
+    assert_equal("sauce ", pizza_obj.getLayers)
+  end
+end

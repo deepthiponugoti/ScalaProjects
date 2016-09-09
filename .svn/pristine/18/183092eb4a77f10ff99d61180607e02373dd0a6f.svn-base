@@ -1,0 +1,70 @@
+import org.junit.Assert._
+import org.junit.Test
+
+class CuttingRodTest{
+
+	@Test
+	def testCanary = {
+		assertTrue(true)
+	}
+  
+	@Test
+	def testAddOptimalSolutions= {
+		val cuttingRod = new CuttingRod()
+		assertEquals((10, List(List(1,3), List(1), List(2,2))), cuttingRod.addOptimalSolutions(List(1,3), (10, List(List(1), List(2,2)))))
+//remove this test, no need for addOptimalSolutions. Start with the most important function first.
+	}
+	
+	@Test
+	def testFortotalCostOfPatternForNoPattern = {
+		val cuttingRod = new CuttingRod() //Venkat: RodCutter
+		val profits = Map(1 ->1, //Venkat: Write on one line. Move this to the class instead of duplicating in each test
+					2 -> 5,
+					3 -> 7,
+					4 -> 8)
+		val pattern = Nil //Venkat: Avoid nil. Also what does pattern mean? cuts?
+
+		assertEquals(0, cuttingRod.totalProfitOfCuts(profits, pattern) )
+//Venkat: Change this to
+//val expected = Map("revenue" -> 0, "cuts" -> List(List()))
+//assertEquals(expected, rodCutter.getOptimalCuts(0, prices))
+//where prices is defined in the class
+	}
+
+//Venkat: Test for 0 where there are no cuts, then test for 1 where there is one cut with one length, then for 2 (for example) where
+//there is one cut with multiple lenghts, then for another number (say 4) where there are multiple cuts of different lengths. All tests
+//for getOptimalCuts, each test moving us forward.
+  
+	@Test
+	def testFortotalCostOfPatternForPattern = {
+		val cuttingRod = new CuttingRod()
+		val profits = Map(1 ->1,
+					2 -> 5,
+					3 -> 7,
+					4 -> 8)
+		val pattern = List(1, 3, 4)
+		assertEquals(16, cuttingRod.totalProfitOfCuts(profits, pattern))
+	}
+  		
+	@Test
+	def testMaxProfitForGivenLength = {
+		val cuttingRod = new CuttingRod()
+		val priceOfDifferentLengthRods = Map(1 ->1,
+					2 -> 5,
+					3 -> 7,
+					4 -> 8)
+
+		assertEquals(10, cuttingRod.maxProfitForGivenLength(priceOfDifferentLengthRods, 4) )
+	}
+	
+	@Test
+	def testGetOptimalCutsForLengthThree = {
+		val cuttingRod = new CuttingRod()
+		val priceOfDifferentLengthRods = Map(1 ->2,
+					2 -> 5,
+					3 -> 7,
+					4 -> 8)
+		val possibleCuts = List(List(1,2), List(1,1,1), List(3))
+		assertEquals((7, List(List(3), List(1,2))), cuttingRod.getOptimalCuts(possibleCuts, priceOfDifferentLengthRods, 3))
+	}
+}
